@@ -27,7 +27,7 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@200;300;400;500;600&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
@@ -36,15 +36,8 @@
   "@type": "BlogPosting",
   "headline": "How I Made My First $1,000 Online — And What I Did Wrong First",
   "description": "The honest story of going from zero to first $1,000 in digital product income.",
-  "author": {
-    "@type": "Person",
-    "name": "VisionSpark"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "VisionSpark",
-    "url": "https://visionsparkinnovation.com"
-  },
+  "author": { "@type": "Person", "name": "VisionSpark" },
+  "publisher": { "@type": "Organization", "name": "VisionSpark", "url": "https://visionsparkinnovation.com" },
   "datePublished": "2026-06-02",
   "mainEntityOfPage": "https://visionsparkinnovation.com/blog/how-i-made-my-first-1000-online",
   "keywords": ["make money online beginner", "first digital product sale", "how to make first 1000 online"]
@@ -52,63 +45,84 @@
 </script>
 
 <style>
-  /* ── Design Tokens ── */
+  /* ─────────────────────────────────────────────────
+     GOLDEN EDITORIAL — Blog Interior Palette
+     Light, warm, Pinterest-optimized reading experience
+     Brand connection: amber links back to homepage gold
+  ───────────────────────────────────────────────── */
   :root {
-    --obsidian: #0A0B0D;
-    --deep: #111316;
-    --surface: #161A1E;
-    --card: #1C2128;
-    --border: #2A2F38;
-    --gold: #f4a900;
-    --gold-dim: #c88b00;
-    --terracotta: #c1666b;
-    --beige: #d4b896;
-    --text: #EDE8E0;
-    --text-mid: #A09688;
-    --text-dim: #6A625A;
-    font-size: 16px;
+    /* Blog reading palette */
+    --oat:        #FAF6ED;   /* Alpine Oat — Pinterest 2025 new neutral */
+    --ivory:      #FFFDF8;   /* Card / block lift */
+    --sand:       #D4C9B8;   /* Borders, dividers */
+    --taupe:      #8A7E70;   /* Secondary text */
+    --ink:        #2A2218;   /* Primary text — warm near-black */
+    --forest:     #3B6E5A;   /* Forest green — heading accent, income signal */
+    --forest-dim: #2E5545;   /* Deeper green for hover */
+    --amber:      #C9892A;   /* Amber — CTA, links (brand echo of homepage gold) */
+    --amber-glow: #E09B32;   /* Hover amber */
+    --terra:      #A8513A;   /* Terracotta — pull quotes, warmth, Pinterest warm-tone advantage */
+    --terra-dim:  #8C4330;
+
+    /* Brand dark — nav only (transition from homepage) */
+    --obsidian:   #0A0B0D;
+    --nav-border: rgba(255,255,255,0.08);
+    --nav-text:   #A09688;
+    --gold:       #f4a900;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--obsidian);
-    color: var(--text);
+    background: var(--oat);
+    color: var(--ink);
     font-family: 'Jost', sans-serif;
     font-weight: 300;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
+    animation: fadeIn 0.7s ease both;
   }
 
-  /* ── Page Fade In ── */
-  body { animation: fadeIn 0.8s ease both; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: none; }
+  }
 
-  /* ── Nav ── */
+  /* ── READING PROGRESS BAR ── */
+  #progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--forest), var(--amber), var(--terra));
+    z-index: 999;
+    transition: width 0.08s linear;
+  }
+
+  /* ─────────────────────────────────────────────────
+     NAV — stays dark (brand identity bridge)
+  ───────────────────────────────────────────────── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
+    background: var(--obsidian);
+    border-bottom: 1px solid var(--nav-border);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.2rem 3rem;
-    background: rgba(10, 11, 13, 0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
+    padding: 1.1rem 3rem;
   }
 
   .nav-logo {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     font-weight: 600;
     letter-spacing: 0.04em;
-    color: var(--text);
+    color: #EDE8E0;
     text-decoration: none;
   }
-
   .nav-logo span { color: var(--gold); }
 
   .nav-links {
@@ -116,548 +130,563 @@
     gap: 2.5rem;
     list-style: none;
   }
-
   .nav-links a {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 500;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--text-mid);
+    color: var(--nav-text);
     text-decoration: none;
-    transition: color 0.25s;
+    transition: color 0.2s;
   }
-
   .nav-links a:hover { color: var(--gold); }
 
-  /* ── Article Container ── */
+  .nav-back {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--nav-text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--gold); }
+  .nav-back svg { width: 14px; height: 14px; }
+
+  /* ─────────────────────────────────────────────────
+     LAYOUT
+  ───────────────────────────────────────────────── */
   .article-wrap {
-    max-width: 760px;
+    max-width: 720px;
     margin: 0 auto;
-    padding: 9rem 2rem 6rem;
+    padding: 8.5rem 2rem 6rem;
   }
 
-  /* ── Category Tag ── */
-  .category-tag {
+  /* ─────────────────────────────────────────────────
+     ARTICLE HEADER
+  ───────────────────────────────────────────────── */
+  .category-pill {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.65rem;
+    background: var(--forest);
+    color: #fff;
+    font-size: 0.6rem;
     font-weight: 600;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.8rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 2px;
+    margin-bottom: 1.6rem;
   }
-
-  .category-tag::before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  /* ── Article Header ── */
-  .article-header { margin-bottom: 3rem; }
 
   h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
     font-weight: 600;
-    line-height: 1.15;
-    color: var(--text);
-    margin-bottom: 1.5rem;
+    line-height: 1.18;
+    color: var(--ink);
     letter-spacing: -0.01em;
+    margin-bottom: 1.4rem;
   }
-
   h1 em {
     font-style: italic;
-    color: var(--gold);
+    color: var(--forest);
   }
 
   .article-meta {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    font-size: 0.72rem;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    font-size: 0.7rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--text-dim);
+    color: var(--taupe);
     padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--sand);
+    margin-bottom: 2.5rem;
   }
-
   .meta-dot {
-    width: 3px;
-    height: 3px;
+    width: 3px; height: 3px;
     border-radius: 50%;
-    background: var(--border);
+    background: var(--sand);
   }
+  .meta-read { color: var(--amber); font-weight: 500; }
 
-  .reading-time { color: var(--gold-dim); }
-
-  /* ── Hero Pull Quote ── */
+  /* ─────────────────────────────────────────────────
+     HERO PULL QUOTE
+  ───────────────────────────────────────────────── */
   .hero-quote {
-    background: var(--card);
-    border-left: 3px solid var(--gold);
-    padding: 2rem 2.5rem;
-    margin: 2.5rem 0 3.5rem;
-    border-radius: 0 6px 6px 0;
+    background: var(--ivory);
+    border-left: 3px solid var(--forest);
+    padding: 2rem 2.4rem;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 3rem;
+    box-shadow: 0 2px 20px rgba(42, 34, 24, 0.06);
   }
-
   .hero-quote p {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.45rem;
+    font-size: 1.38rem;
     font-weight: 400;
     font-style: italic;
     line-height: 1.5;
-    color: var(--text);
+    color: var(--ink);
   }
-
   .hero-quote cite {
     display: block;
-    margin-top: 0.8rem;
-    font-size: 0.68rem;
-    letter-spacing: 0.18em;
+    margin-top: 0.7rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--forest);
     font-style: normal;
   }
 
-  /* ── Body Content ── */
-  .article-body { color: var(--text); }
-
+  /* ─────────────────────────────────────────────────
+     BODY TYPOGRAPHY
+  ───────────────────────────────────────────────── */
   .article-body p {
     font-size: 1.05rem;
-    line-height: 1.85;
+    line-height: 1.88;
+    color: #3D3026;
     margin-bottom: 1.6rem;
-    color: #D8D0C6;
   }
-
-  .article-body p:first-child {
-    font-size: 1.18rem;
+  .article-body p:first-of-type {
+    font-size: 1.15rem;
+    color: var(--ink);
     font-weight: 400;
-    color: var(--text);
   }
+  .article-body a {
+    color: var(--forest);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+  .article-body a:hover { color: var(--amber); }
 
-  /* ── Headings ── */
   h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+    font-size: clamp(1.6rem, 3.5vw, 2.15rem);
     font-weight: 600;
     line-height: 1.25;
-    color: var(--text);
-    margin: 3.5rem 0 1.2rem;
+    color: var(--ink);
+    margin: 3.2rem 0 1.1rem;
     letter-spacing: -0.01em;
+  }
+  h2::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: var(--forest);
+    margin-bottom: 0.7rem;
   }
 
   h3 {
-    font-family: 'Jost', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--terra);
     margin: 2.5rem 0 0.8rem;
   }
 
-  /* ── Mistake Cards ── */
+  /* ─────────────────────────────────────────────────
+     MISTAKE CARDS
+  ───────────────────────────────────────────────── */
   .mistake-grid {
     display: grid;
-    gap: 1.2rem;
-    margin: 2rem 0 3rem;
+    gap: 1rem;
+    margin: 1.8rem 0 3rem;
   }
-
   .mistake-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.6rem 1.8rem;
+    background: var(--ivory);
+    border: 1px solid var(--sand);
+    border-radius: 10px;
+    padding: 1.8rem 2rem;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 1px 12px rgba(42,34,24,0.04);
   }
-
   .mistake-card::before {
     content: '';
     position: absolute;
     top: 0; left: 0;
-    width: 3px;
-    height: 100%;
-    background: var(--terracotta);
+    width: 3px; height: 100%;
+    background: var(--terra);
   }
-
-  .mistake-card:hover { border-color: var(--terracotta); }
-
-  .mistake-number {
+  .mistake-card:hover {
+    border-color: var(--terra);
+    box-shadow: 0 4px 24px rgba(168,81,58,0.1);
+  }
+  .mistake-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 300;
-    color: var(--border);
+    color: var(--sand);
     position: absolute;
-    top: 0.5rem;
-    right: 1.2rem;
+    top: 0.2rem; right: 1.2rem;
     line-height: 1;
+    pointer-events: none;
   }
-
   .mistake-label {
-    font-size: 0.65rem;
-    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--terracotta);
+    color: var(--terra);
     margin-bottom: 0.5rem;
   }
-
   .mistake-card h4 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 600;
-    color: var(--text);
+    color: var(--ink);
     margin-bottom: 0.6rem;
+    line-height: 1.3;
   }
-
   .mistake-card p {
     font-size: 0.92rem;
-    line-height: 1.7;
-    color: var(--text-mid);
+    line-height: 1.72;
+    color: var(--taupe);
     margin: 0;
   }
 
-  /* ── Pull Quotes ── */
+  /* ─────────────────────────────────────────────────
+     PULL QUOTES (Pinterest-optimized: high contrast,
+     warm tone, quotable text)
+  ───────────────────────────────────────────────── */
   .pull-quote {
-    margin: 3rem -1rem;
+    margin: 3rem -0.5rem;
     padding: 2.5rem 2rem;
+    border-top: 1px solid var(--sand);
+    border-bottom: 1px solid var(--sand);
     text-align: center;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    background: var(--ivory);
   }
-
   .pull-quote p {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
     font-weight: 500;
     font-style: italic;
-    line-height: 1.4;
-    color: var(--gold);
-    margin: 0;
+    line-height: 1.45;
+    color: var(--terra);
+    margin: 0 !important;
   }
 
-  /* ── What Worked List ── */
-  .what-worked {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 2rem 2.2rem;
-    margin: 2rem 0 3rem;
-  }
-
-  .what-worked-title {
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.4rem;
-  }
-
-  .what-worked ol {
-    padding-left: 1.4rem;
-    display: grid;
-    gap: 0.9rem;
-  }
-
-  .what-worked li {
-    font-size: 0.97rem;
-    line-height: 1.65;
-    color: var(--text);
-  }
-
-  .what-worked li strong {
-    color: var(--gold);
-    font-weight: 500;
-  }
-
-  /* ── Highlight Box ── */
+  /* ─────────────────────────────────────────────────
+     HIGHLIGHT BOX
+  ───────────────────────────────────────────────── */
   .highlight-box {
-    background: linear-gradient(135deg, rgba(244, 169, 0, 0.08), rgba(193, 102, 107, 0.05));
-    border: 1px solid rgba(244, 169, 0, 0.25);
+    background: linear-gradient(135deg,
+      rgba(59,110,90,0.07),
+      rgba(201,137,42,0.05));
+    border: 1px solid rgba(59,110,90,0.2);
     border-radius: 10px;
-    padding: 2rem 2.2rem;
+    padding: 1.8rem 2rem;
     margin: 2.5rem 0;
   }
-
   .highlight-box p {
-    margin: 0;
     font-size: 1rem;
-    color: var(--text);
+    line-height: 1.76;
+    color: var(--ink);
+    margin: 0 !important;
   }
+  .highlight-box p strong { color: var(--forest); }
 
-  .highlight-box p strong {
-    color: var(--gold);
+  /* ─────────────────────────────────────────────────
+     WHAT WORKED BOX
+  ───────────────────────────────────────────────── */
+  .what-worked {
+    background: var(--ivory);
+    border: 1px solid var(--sand);
+    border-radius: 12px;
+    padding: 2rem 2.2rem;
+    margin: 2rem 0 3rem;
+    box-shadow: 0 2px 18px rgba(42,34,24,0.05);
   }
+  .what-worked-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 1.3rem;
+  }
+  .what-worked ol {
+    padding-left: 1.3rem;
+    display: grid;
+    gap: 0.85rem;
+  }
+  .what-worked li {
+    font-size: 0.97rem;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .what-worked li strong { color: var(--forest); font-weight: 500; }
 
-  /* ── CTA Section ── */
+  /* ─────────────────────────────────────────────────
+     CTA SECTION
+  ───────────────────────────────────────────────── */
   .cta-section {
-    background: var(--card);
-    border: 1px solid rgba(244, 169, 0, 0.3);
-    border-radius: 14px;
+    background: var(--ink);
+    border-radius: 16px;
     padding: 3rem 2.5rem;
-    margin: 4rem 0 2rem;
+    margin: 4.5rem 0 2rem;
     text-align: center;
     position: relative;
     overflow: hidden;
   }
-
   .cta-section::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), var(--terracotta), var(--gold), transparent);
+    background: linear-gradient(90deg, var(--forest), var(--amber), var(--terra));
+  }
+  /* Subtle warm glow behind CTA */
+  .cta-section::after {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 200px;
+    background: radial-gradient(ellipse, rgba(201,137,42,0.12), transparent 70%);
+    pointer-events: none;
   }
 
   .cta-eyebrow {
-    font-size: 0.65rem;
-    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.2rem;
+    color: var(--amber);
+    margin-bottom: 1rem;
   }
-
   .cta-section h2 {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.7rem, 4vw, 2.4rem);
     font-weight: 600;
+    color: #EDE8E0;
     margin: 0 0 1rem;
-    color: var(--text);
     letter-spacing: -0.01em;
   }
-
+  .cta-section h2::before { display: none; }
   .cta-section p {
-    font-size: 0.97rem;
-    color: var(--text-mid);
-    max-width: 520px;
+    font-size: 0.95rem;
+    color: #8A7E70;
+    max-width: 500px;
     margin: 0 auto 2rem;
-    line-height: 1.7;
+    line-height: 1.72;
   }
-
   .cta-price {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.8rem;
+    font-size: 3rem;
     font-weight: 700;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
+    color: var(--amber);
     line-height: 1;
+    margin-bottom: 1.5rem;
   }
-
-  .cta-price sup {
-    font-size: 1.4rem;
-    vertical-align: super;
-    font-weight: 400;
-  }
+  .cta-price sup { font-size: 1.4rem; vertical-align: super; font-weight: 400; }
 
   .cta-btn {
     display: inline-block;
-    background: var(--gold);
-    color: var(--obsidian);
-    font-family: 'Jost', sans-serif;
-    font-size: 0.75rem;
+    background: var(--amber);
+    color: var(--ink);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     text-decoration: none;
     padding: 1.1rem 3rem;
     border-radius: 4px;
     transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
-    box-shadow: 0 4px 20px rgba(244, 169, 0, 0.25);
+    box-shadow: 0 4px 24px rgba(201,137,42,0.3);
   }
-
   .cta-btn:hover {
-    background: #ffc233;
+    background: var(--amber-glow);
     transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(244, 169, 0, 0.4);
+    box-shadow: 0 8px 36px rgba(201,137,42,0.45);
   }
-
   .cta-guarantee {
-    margin-top: 1.2rem;
-    font-size: 0.7rem;
+    margin-top: 1rem;
+    font-size: 0.68rem;
     letter-spacing: 0.1em;
-    color: var(--text-dim);
+    color: #5A5248;
   }
 
-  /* ── Author Box ── */
+  /* ─────────────────────────────────────────────────
+     AUTHOR BOX
+  ───────────────────────────────────────────────── */
   .author-box {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.4rem;
     align-items: flex-start;
-    padding: 2rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    margin-top: 4rem;
+    padding: 1.8rem 2rem;
+    background: var(--ivory);
+    border: 1px solid var(--sand);
+    border-radius: 12px;
+    margin-top: 3.5rem;
+    box-shadow: 0 1px 12px rgba(42,34,24,0.04);
   }
-
   .author-avatar {
-    width: 60px;
-    height: 60px;
+    width: 56px; height: 56px;
     border-radius: 50%;
-    border: 2px solid var(--gold);
-    background: var(--card);
+    border: 2px solid var(--forest);
+    background: var(--oat);
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    color: var(--gold);
+    font-size: 1.5rem;
+    color: var(--forest);
+    font-weight: 600;
   }
-
   .author-info h4 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 600;
-    color: var(--text);
-    margin-bottom: 0.2rem;
+    color: var(--ink);
+    margin-bottom: 0.15rem;
   }
-
-  .author-info .author-role {
-    font-size: 0.65rem;
+  .author-role {
+    font-size: 0.6rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.6rem;
+    color: var(--forest);
+    margin-bottom: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
   }
-
   .author-info p {
     font-size: 0.88rem;
-    color: var(--text-mid);
+    color: var(--taupe);
     line-height: 1.6;
     margin: 0;
   }
 
-  /* ── Related Posts ── */
+  /* ─────────────────────────────────────────────────
+     RELATED POSTS
+  ───────────────────────────────────────────────── */
   .related-section {
     margin-top: 4rem;
-    padding-top: 3rem;
-    border-top: 1px solid var(--border);
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--sand);
   }
-
-  .related-label {
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.25em;
+  .related-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 1.5rem;
+    color: var(--taupe);
+    margin-bottom: 1.4rem;
   }
-
   .related-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
-
   .related-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.4rem;
+    background: var(--ivory);
+    border: 1px solid var(--sand);
+    border-radius: 10px;
+    padding: 1.4rem 1.5rem;
     text-decoration: none;
-    transition: border-color 0.25s, transform 0.2s;
+    transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+    box-shadow: 0 1px 10px rgba(42,34,24,0.04);
   }
-
   .related-card:hover {
-    border-color: var(--gold-dim);
+    border-color: var(--forest);
     transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(59,110,90,0.1);
   }
-
-  .related-card-tag {
-    font-size: 0.6rem;
-    font-weight: 600;
+  .related-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--forest);
     margin-bottom: 0.5rem;
   }
-
   .related-card h5 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.05rem;
     font-weight: 600;
-    color: var(--text);
+    color: var(--ink);
     line-height: 1.3;
   }
 
-  /* ── Footer ── */
+  /* ─────────────────────────────────────────────────
+     FOOTER — dark (brand bridge back)
+  ───────────────────────────────────────────────── */
   footer {
-    border-top: 1px solid var(--border);
+    background: var(--obsidian);
+    border-top: 1px solid rgba(255,255,255,0.06);
     margin-top: 5rem;
-    padding: 2.5rem 3rem;
+    padding: 2rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
   }
-
-  .footer-brand {
+  .footer-logo {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.1rem;
-    color: var(--text);
+    color: #EDE8E0;
     text-decoration: none;
   }
-
-  .footer-brand span { color: var(--gold); }
-
+  .footer-logo span { color: var(--gold); }
   .footer-copy {
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     letter-spacing: 0.1em;
-    color: var(--text-dim);
+    color: #3D3832;
   }
 
-  /* ── Progress Bar ── */
-  #reading-progress {
-    position: fixed;
-    top: 0; left: 0;
-    height: 2px;
-    width: 0%;
-    background: linear-gradient(90deg, var(--gold), var(--terracotta));
-    z-index: 999;
-    transition: width 0.1s linear;
-  }
-
-  /* ── Scroll Reveal ── */
+  /* ─────────────────────────────────────────────────
+     SCROLL REVEAL
+  ───────────────────────────────────────────────── */
   .reveal {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(20px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
   }
-
   .reveal.visible {
     opacity: 1;
     transform: none;
   }
 
-  /* ── Responsive ── */
+  /* ─────────────────────────────────────────────────
+     RESPONSIVE
+  ───────────────────────────────────────────────── */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .article-wrap { padding: 7rem 1.2rem 4rem; }
-    .pull-quote { margin: 2.5rem -0.5rem; }
+    .pull-quote { margin: 2.5rem -0.8rem; }
     .related-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 0.8rem; text-align: center; padding: 2rem 1.5rem; }
+    footer { flex-direction: column; gap: 0.8rem; text-align: center; padding: 1.8rem 1.5rem; }
+    .cta-section { padding: 2.2rem 1.5rem; }
   }
 </style>
 </head>
 <body>
 
 <!-- Reading Progress -->
-<div id="reading-progress"></div>
+<div id="progress"></div>
 
-<!-- Nav -->
+<!-- Nav — dark brand bridge -->
 <nav>
   <a href="/" class="nav-logo">Vision<span>Spark</span></a>
   <ul class="nav-links">
@@ -665,21 +694,27 @@
     <li><a href="/blog">Journal</a></li>
     <li><a href="https://psyinsight.gumroad.com" target="_blank">Shop</a></li>
   </ul>
+  <a href="/blog" class="nav-back">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M10 12L6 8l4-4"/>
+    </svg>
+    Journal
+  </a>
 </nav>
 
 <!-- Article -->
 <main class="article-wrap">
 
-  <div class="category-tag">Make Money Online</div>
+  <div class="category-pill">Make Money Online</div>
 
-  <header class="article-header">
+  <header class="article-header reveal">
     <h1>How I Made My First $1,000 Online — <em>And What I Did Wrong First</em></h1>
     <div class="article-meta">
       <span>VisionSpark</span>
       <span class="meta-dot"></span>
       <span>June 2, 2026</span>
       <span class="meta-dot"></span>
-      <span class="reading-time">7 min read</span>
+      <span class="meta-read">7 min read</span>
     </div>
   </header>
 
@@ -690,11 +725,11 @@
 
   <div class="article-body">
 
-    <p>I wasted eight months before I made my first dollar online. Not because I wasn't working. I was working <em>constantly</em> — late nights, weekends, obsessively consuming content from every YouTube guru I could find. I failed because I was busy, not strategic. There's a difference. A big one.</p>
+    <p>I wasted eight months before I made my first dollar online. Not because I wasn't working — I was working <em>constantly</em>. Late nights, weekends, obsessively consuming content from every guru I could find. I failed because I was busy, not strategic. There is a difference. A big one.</p>
 
     <p>This is the story of how I finally crossed $1,000 in online income — and the three decisions that almost cost me everything before I got there.</p>
 
-    <p>I'm writing this because when I was starting out, I couldn't find anyone willing to be honest. Everyone was selling the highlight reel. Nobody was talking about the months of silence, the products nobody bought, the launch that got zero sales. So here it is. The full picture.</p>
+    <p>I'm writing this because when I was starting out, I couldn't find anyone willing to be honest. Everyone was selling the highlight reel. Nobody talked about the months of silence, the products nobody bought, the launch that got zero sales. So here it is. The full picture.</p>
 
     <div class="pull-quote reveal">
       <p>"I wasn't failing because I lacked information. I was failing because I had too much of it and acted on none of it."</p>
@@ -702,32 +737,30 @@
 
     <h2>Before the $1,000: The Mess</h2>
 
-    <p>Let me be specific about what the early days looked like. I tried dropshipping for two months and abandoned it after my first supplier disappeared. I started a YouTube channel, posted six videos, got 34 subscribers, and quit. I attempted affiliate marketing by writing blog posts on a free WordPress site — the kind of generic articles Google never once ranked. I bought courses. I bought tools. I bought time I couldn't afford to waste.</p>
+    <p>Let me be specific about what the early days looked like. I tried dropshipping for two months and abandoned it after my first supplier disappeared. I started a YouTube channel, posted six videos, got 34 subscribers, and quit. I attempted affiliate marketing by writing blog posts on a free site — the kind of generic articles Google never ranked. I bought courses. I bought tools. I bought time I couldn't afford to waste.</p>
 
-    <p>By month six, I had spent money, not made it. And the worst part? I couldn't even tell you <em>what</em> wasn't working, because I hadn't stayed with anything long enough to diagnose it.</p>
+    <p>By month six, I had spent money, not made it. And the worst part? I couldn't tell you <em>what</em> wasn't working, because I hadn't stayed with anything long enough to diagnose it.</p>
 
     <h3>The Mistakes That Cost Me Months</h3>
 
     <div class="mistake-grid reveal">
       <div class="mistake-card">
-        <div class="mistake-number">01</div>
+        <div class="mistake-num">01</div>
         <div class="mistake-label">Mistake One</div>
         <h4>I chased models, not problems.</h4>
         <p>Every new income strategy I tried was something I'd seen work for someone else. Dropshipping worked for them. Print-on-demand worked for them. I never asked: what problem do I already know how to solve? That's where the money actually lives.</p>
       </div>
-
       <div class="mistake-card">
-        <div class="mistake-number">02</div>
+        <div class="mistake-num">02</div>
         <div class="mistake-label">Mistake Two</div>
         <h4>I built before I validated.</h4>
         <p>I spent three weeks designing a full digital course before I'd spoken to a single potential buyer. The result: a beautifully packaged answer to a question nobody was asking. Validation takes a day. Building takes weeks. Do it in the right order.</p>
       </div>
-
       <div class="mistake-card">
-        <div class="mistake-number">03</div>
+        <div class="mistake-num">03</div>
         <div class="mistake-label">Mistake Three</div>
         <h4>I optimized instead of starting.</h4>
-        <p>I spent days picking the perfect platform, the perfect price point, the perfect name. None of it mattered. What mattered was getting something in front of a real person and asking them to pay for it. Nothing else teaches you faster than that moment.</p>
+        <p>I spent days picking the perfect platform, the perfect price point, the perfect name. None of it mattered. What mattered was getting something in front of a real person and asking them to pay for it. Nothing teaches you faster than that moment.</p>
       </div>
     </div>
 
@@ -735,7 +768,7 @@
 
     <p>Month seven. I'm sitting in my apartment, genuinely considering quitting. And I made one decision that changed everything: I stopped trying to figure out what would work and started paying attention to what people were already asking me.</p>
 
-    <p>A few people in my life kept coming to me with questions about getting their finances together after a rough stretch. About building routines that actually held. About the psychology of starting over. I had lived through that. I had frameworks I used personally. And it clicked — <em>that</em> was the product.</p>
+    <p>A few people in my life kept coming to me with the same questions — getting their finances together after a rough stretch, building routines that actually held, the psychology of starting over. I had lived through that. I had frameworks I used personally. And it clicked — <em>that</em> was the product.</p>
 
     <p>Not something I invented from scratch. Something I already knew, packaged in a way that saved someone else the years of trial and error I'd already paid for.</p>
 
@@ -746,7 +779,7 @@
     <h2>What Actually Worked</h2>
 
     <div class="what-worked reveal">
-      <div class="what-worked-title">The 4-Step Sequence That Got Me to $1,000</div>
+      <div class="what-worked-eyebrow">The 4-Step Sequence That Got Me to $1,000</div>
       <ol>
         <li><strong>Chose one problem, one person.</strong> Not a broad niche. One specific person with one specific frustration. That specificity is what makes someone stop scrolling and actually read what you wrote.</li>
         <li><strong>Created the smallest possible version.</strong> Not a 12-module course. A focused, dense guide. Twenty pages that answered the exact question my ideal reader had. Done in a weekend.</li>
@@ -755,9 +788,9 @@
       </ol>
     </div>
 
-    <p>The first sale came at 11:47pm on a Tuesday. I remember it exactly. Seventeen dollars deposited directly into my account from someone I'd never met who found me through a blog post. I sat with that for a long time.</p>
+    <p>The first sale came at 11:47pm on a Tuesday. I remember it exactly. Seventeen dollars deposited from someone I'd never met who found me through a blog post. I sat with that for a long time.</p>
 
-    <p>Not because of the money — $17 isn't life-changing. But because something had finally proven it was possible. That it worked. That the model was real and I was inside it.</p>
+    <p>Not because of the money. But because something had finally proven it was possible. That it worked. That the model was real and I was inside it.</p>
 
     <p>Within six weeks of publishing that first guide, I crossed $1,000. Not from a viral moment. Not from a massive audience. From consistent, honest content and a product priced right for people who were exactly where I'd been a year earlier.</p>
 
@@ -767,27 +800,23 @@
 
     <h2>What I Know Now That I Wish I'd Known Then</h2>
 
-    <p>If I could go back and hand myself one piece of paper at the start of this journey, here's what it would say:</p>
-
     <p><strong>Stop learning. Start selling.</strong> You already know enough. The people who make money online aren't smarter than you. They're just further along the line of uncomfortable action. Every day you spend consuming instead of creating is a day someone else captures the buyer you could have had.</p>
 
     <p><strong>Your story is the product.</strong> Not your credentials. Not your follower count. The fact that you've been through something — and figured a piece of it out — is worth money to someone who's standing right at the beginning of it. Don't wait until you're an expert. Help from one step ahead.</p>
 
     <p><strong>Momentum is a multiplier.</strong> The first sale is the hardest. The second is easier. By the time you have ten, you have proof — and proof changes how you show up, how you price, how you talk about what you do. Get to ten as fast as you can.</p>
 
-    <h2>The Next Step (If You're Ready)</h2>
+    <h2>The Next Step</h2>
 
-    <p>I put everything I learned into a focused guide called <strong>From Zero to First Sale</strong>. It's the exact framework I used — simplified, sequenced, and built for people who are tired of circling the idea and want to actually move.</p>
+    <p>I put everything I learned into a focused guide called <strong>From Zero to First Sale</strong>. The exact framework I used — simplified, sequenced, built for people who are tired of circling the idea and want to actually move. Thirteen dollars. No fluff.</p>
 
-    <p>It's not a course. It's not a masterclass. It's the clearest, most direct path I know from zero income online to your first real sale. Thirteen dollars. No fluff.</p>
-
-  </div><!-- .article-body -->
+  </div><!-- /.article-body -->
 
   <!-- CTA -->
   <div class="cta-section reveal">
     <div class="cta-eyebrow">Ready to Stop Circling?</div>
     <h2>From Zero to First Sale</h2>
-    <p>The exact framework I used to go from 8 months of failure to my first $1,000 online. Clear. Sequenced. Built for beginners who are done waiting.</p>
+    <p>The exact framework I used to go from 8 months of failure to my first $1,000 online. Clear. Sequenced. Built for people who are done waiting.</p>
     <div class="cta-price"><sup>$</sup>13</div>
     <a href="https://psyinsight.gumroad.com/l/qscjsb" target="_blank" class="cta-btn">Get Instant Access →</a>
     <div class="cta-guarantee">Instant digital download · No subscriptions · Yours forever</div>
@@ -805,14 +834,14 @@
 
   <!-- Related -->
   <div class="related-section reveal">
-    <div class="related-label">Continue Reading</div>
+    <div class="related-eyebrow">Continue Reading</div>
     <div class="related-grid">
       <a href="#" class="related-card">
-        <div class="related-card-tag">Digital Products</div>
+        <div class="related-tag">Digital Products</div>
         <h5>The 48-Hour Digital Product: From Idea to Listed in a Weekend</h5>
       </a>
       <a href="#" class="related-card">
-        <div class="related-card-tag">Strategy</div>
+        <div class="related-tag">Strategy</div>
         <h5>Why Most Beginners Never Make Their First Sale (And How to Be Different)</h5>
       </a>
     </div>
@@ -820,33 +849,30 @@
 
 </main>
 
-<!-- Footer -->
+<!-- Footer — dark brand bridge -->
 <footer>
-  <a href="/" class="footer-brand">Vision<span>Spark</span></a>
+  <a href="/" class="footer-logo">Vision<span>Spark</span></a>
   <div class="footer-copy">© 2026 VisionSpark · visionsparkinnovation.com</div>
 </footer>
 
 <script>
-  // Reading progress bar
-  const bar = document.getElementById('reading-progress');
+  // Reading progress
+  const bar = document.getElementById('progress');
   window.addEventListener('scroll', () => {
-    const doc = document.documentElement;
-    const scrolled = doc.scrollTop;
-    const total = doc.scrollHeight - doc.clientHeight;
-    bar.style.width = (scrolled / total * 100) + '%';
-  });
+    const d = document.documentElement;
+    bar.style.width = (d.scrollTop / (d.scrollHeight - d.clientHeight) * 100) + '%';
+  }, { passive: true });
 
   // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
+  const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
         io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => io.observe(el));
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 
 </body>
