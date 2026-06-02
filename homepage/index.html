@@ -18,15 +18,15 @@
 :root {
   --obsidian:      #0A0B0D;
   --deep:          #141619;
-  --warm-shadow:   #2D2316;
-  --bronze-dark:   #50341C;
-  --bronze:        #8C5F30;
-  --bronze-shine:  #CD9850;
-  --specular:      #F2D28C;
+  --warm-shadow:   #2E2420;
+  --bronze-dark:   #4a403a;
+  --bronze:        #C48500;
+  --bronze-shine:  #f4a900;
+  --specular:      #FFD152;
   --cream:         #FCF8EE;
-  --mid:           #A08C6E;
-  --patina:        #586E5A;
-  --patina-light:  #7A9E7D;
+  --mid:           #d4b896;
+  --patina:        #c1666b;
+  --patina-light:  #D4897A;
   --font-display:  'Cormorant Garamond', Georgia, serif;
   --font-ui:       'Jost', sans-serif;
 }
@@ -68,7 +68,7 @@ button { cursor: none; border: none; background: none; font-family: inherit; }
 #cursor-ring {
   position: fixed;
   width: 36px; height: 36px;
-  border: 1px solid rgba(205, 152, 80, 0.5);
+  border: 1px solid rgba(244, 169, 0, 0.5);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
@@ -76,7 +76,7 @@ button { cursor: none; border: none; background: none; font-family: inherit; }
   transition: transform 0.18s ease, width 0.3s, height 0.3s, border-color 0.3s;
 }
 body:has(a:hover) #cursor, body:has(button:hover) #cursor { width: 14px; height: 14px; background: var(--specular); }
-body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 54px; height: 54px; border-color: rgba(242, 210, 140, 0.6); }
+body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 54px; height: 54px; border-color: rgba(255, 209, 82, 0.6); }
 
 /* ═══════════════════════════════════════════════════════════════
    SCROLLBAR
@@ -154,7 +154,7 @@ body::after {
   padding: 16px 0;
   background: rgba(10, 11, 13, 0.92);
   backdrop-filter: blur(20px) saturate(1.4);
-  border-bottom-color: rgba(140, 95, 48, 0.18);
+  border-bottom-color: rgba(196, 133, 0, 0.18);
 }
 #nav .container { display: flex; align-items: center; justify-content: space-between; }
 
@@ -239,7 +239,7 @@ body::after {
   position: absolute;
   top: -20%; right: -10%;
   width: 80vw; height: 80vw;
-  background: radial-gradient(ellipse, rgba(140, 95, 48, 0.09) 0%, transparent 65%);
+  background: radial-gradient(ellipse, rgba(196, 133, 0, 0.09) 0%, transparent 65%);
   pointer-events: none;
 }
 
@@ -249,8 +249,8 @@ body::after {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(140, 95, 48, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(140, 95, 48, 0.045) 1px, transparent 1px);
+    linear-gradient(rgba(196, 133, 0, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 133, 0, 0.045) 1px, transparent 1px);
   background-size: 72px 72px;
   background-position: center;
   pointer-events: none;
@@ -289,8 +289,8 @@ body::after {
   display: block;
   margin-left: 0.08em;
   text-shadow:
-    0 0 80px rgba(205, 152, 80, 0.3),
-    0 0 160px rgba(205, 152, 80, 0.1);
+    0 0 80px rgba(244, 169, 0, 0.3),
+    0 0 160px rgba(244, 169, 0, 0.1);
 }
 .h-line3 { font-weight: 300; color: var(--cream); display: block; }
 .h-line4 {
@@ -332,7 +332,7 @@ body::after {
   position: absolute;
   top: 0; left: -100%;
   width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent 0%, rgba(242,210,140,0.45) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 209, 82, 0.45) 50%, transparent 100%);
   transition: left 0.55s ease;
 }
 .btn-primary:hover { background: var(--bronze-shine); }
@@ -350,7 +350,7 @@ body::after {
   align-items: center;
   gap: 12px;
   transition: color 0.3s, gap 0.3s;
-  border-bottom: 1px solid rgba(140, 95, 48, 0.3);
+  border-bottom: 1px solid rgba(196, 133, 0, 0.3);
 }
 .btn-ghost::after { content: '→'; transition: transform 0.3s; }
 .btn-ghost:hover { color: var(--bronze-shine); gap: 18px; border-bottom-color: var(--bronze-shine); }
@@ -403,7 +403,7 @@ body::after {
   font-size: 0.6rem;
   letter-spacing: 0.36em;
   text-transform: uppercase;
-  color: rgba(140, 95, 48, 0.3);
+  color: rgba(196, 133, 0, 0.3);
   font-weight: 200;
   white-space: nowrap;
   user-select: none;
@@ -420,7 +420,7 @@ body::after {
   font-size: 0.62rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: rgba(140, 95, 48, 0.4);
+  color: rgba(196, 133, 0, 0.4);
 }
 .hero-scroll::before {
   content: '';
@@ -442,8 +442,8 @@ body::after {
 #philosophy {
   padding: 100px 0;
   background: var(--warm-shadow);
-  border-top: 1px solid rgba(140, 95, 48, 0.2);
-  border-bottom: 1px solid rgba(140, 95, 48, 0.2);
+  border-top: 1px solid rgba(196, 133, 0, 0.2);
+  border-bottom: 1px solid rgba(196, 133, 0, 0.2);
   overflow: hidden;
   position: relative;
 }
@@ -456,7 +456,7 @@ body::after {
   font-family: var(--font-display);
   font-size: 28rem;
   line-height: 1;
-  color: rgba(140, 95, 48, 0.06);
+  color: rgba(196, 133, 0, 0.06);
   font-weight: 700;
   pointer-events: none;
   user-select: none;
@@ -504,7 +504,7 @@ body::after {
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(88, 110, 90, 0.04) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(193, 102, 107, 0.04) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -571,7 +571,7 @@ body::after {
   font-size: 7rem;
   font-weight: 700;
   font-style: italic;
-  color: rgba(140, 95, 48, 0.06);
+  color: rgba(196, 133, 0, 0.06);
   line-height: 1;
   user-select: none;
   pointer-events: none;
@@ -615,7 +615,7 @@ body::after {
   position: absolute;
   top: 0; right: 0;
   width: 50%; height: 100%;
-  background: radial-gradient(ellipse at right center, rgba(140, 95, 48, 0.04) 0%, transparent 60%);
+  background: radial-gradient(ellipse at right center, rgba(196, 133, 0, 0.04) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -631,7 +631,7 @@ body::after {
 .product-card {
   background: var(--obsidian);
   padding: 72px 64px 64px;
-  border: 1px solid rgba(140, 95, 48, 0.1);
+  border: 1px solid rgba(196, 133, 0, 0.1);
   position: relative;
   overflow: hidden;
   transition: border-color 0.4s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -640,11 +640,11 @@ body::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(140, 95, 48, 0.04) 0%, transparent 50%);
+  background: linear-gradient(135deg, rgba(196, 133, 0, 0.04) 0%, transparent 50%);
   opacity: 0;
   transition: opacity 0.4s;
 }
-.product-card:hover { border-color: rgba(205, 152, 80, 0.35); transform: translateY(-6px); }
+.product-card:hover { border-color: rgba(244, 169, 0, 0.35); transform: translateY(-6px); }
 .product-card:hover::before { opacity: 1; }
 
 /* Shimmer border animation */
@@ -722,7 +722,7 @@ body::after {
   gap: 16px;
   margin-bottom: 40px;
   padding-top: 32px;
-  border-top: 1px solid rgba(140, 95, 48, 0.15);
+  border-top: 1px solid rgba(196, 133, 0, 0.15);
 }
 .product-price {
   font-family: var(--font-display);
@@ -761,7 +761,7 @@ body::after {
   position: absolute;
   top: 0; left: -100%;
   width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(242,210,140,0.4), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 209, 82, 0.4), transparent);
   transition: left 0.5s;
 }
 .btn-buy:hover { background: var(--bronze-shine); }
@@ -773,7 +773,7 @@ body::after {
   font-weight: 300;
   letter-spacing: 0.12em;
   padding-bottom: 3px;
-  border-bottom: 1px solid rgba(140, 95, 48, 0.25);
+  border-bottom: 1px solid rgba(196, 133, 0, 0.25);
   transition: color 0.3s, border-color 0.3s;
 }
 .btn-learn:hover { color: var(--bronze-shine); border-bottom-color: var(--bronze-shine); }
@@ -792,7 +792,7 @@ body::after {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 80% at 50% 50%, rgba(140, 95, 48, 0.06) 0%, transparent 70%);
+    radial-gradient(ellipse 60% 80% at 50% 50%, rgba(196, 133, 0, 0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 .testimonial-mark {
@@ -840,7 +840,7 @@ body::after {
 #journal {
   padding: 160px 0;
   background: var(--deep);
-  border-top: 1px solid rgba(140, 95, 48, 0.1);
+  border-top: 1px solid rgba(196, 133, 0, 0.1);
 }
 
 .journal-header {
@@ -867,7 +867,7 @@ body::after {
   text-transform: uppercase;
   color: var(--bronze);
   padding-bottom: 4px;
-  border-bottom: 1px solid rgba(140, 95, 48, 0.3);
+  border-bottom: 1px solid rgba(196, 133, 0, 0.3);
   transition: color 0.3s, border-color 0.3s;
   flex-shrink: 0;
   margin-bottom: 8px;
@@ -884,7 +884,7 @@ body::after {
 .journal-card {
   background: var(--obsidian);
   padding: 52px 48px;
-  border: 1px solid rgba(140, 95, 48, 0.07);
+  border: 1px solid rgba(196, 133, 0, 0.07);
   position: relative;
   overflow: hidden;
   transition: border-color 0.4s, background 0.4s;
@@ -903,7 +903,7 @@ body::after {
   transform-origin: top;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.journal-card:hover { border-color: rgba(140, 95, 48, 0.22); background: #0E1013; }
+.journal-card:hover { border-color: rgba(196, 133, 0, 0.22); background: #0E1013; }
 .journal-card:hover::before { transform: scaleY(1); }
 
 .journal-category {
@@ -955,11 +955,11 @@ body::after {
   align-items: center;
   justify-content: space-between;
   padding-top: 28px;
-  border-top: 1px solid rgba(140, 95, 48, 0.1);
+  border-top: 1px solid rgba(196, 133, 0, 0.1);
 }
 .journal-date {
   font-size: 0.65rem;
-  color: rgba(140, 95, 48, 0.45);
+  color: rgba(196, 133, 0, 0.45);
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -982,8 +982,8 @@ body::after {
 #email-cta {
   padding: 140px 0;
   background: var(--warm-shadow);
-  border-top: 1px solid rgba(140, 95, 48, 0.2);
-  border-bottom: 1px solid rgba(140, 95, 48, 0.2);
+  border-top: 1px solid rgba(196, 133, 0, 0.2);
+  border-bottom: 1px solid rgba(196, 133, 0, 0.2);
   position: relative;
   overflow: hidden;
   text-align: center;
@@ -992,7 +992,7 @@ body::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(140, 95, 48, 0.07) 0%, transparent 65%);
+  background: radial-gradient(ellipse at center, rgba(196, 133, 0, 0.07) 0%, transparent 65%);
 }
 .email-eyebrow { margin-bottom: 32px; justify-content: center; }
 .email-title {
@@ -1029,7 +1029,7 @@ body::after {
   flex: 1;
   padding: 18px 28px;
   background: rgba(252, 248, 238, 0.04);
-  border: 1px solid rgba(140, 95, 48, 0.25);
+  border: 1px solid rgba(196, 133, 0, 0.25);
   border-right: none;
   color: var(--cream);
   font-family: var(--font-ui);
@@ -1041,7 +1041,7 @@ body::after {
 }
 .email-input::placeholder { color: rgba(160, 140, 110, 0.5); }
 .email-input:focus {
-  border-color: rgba(205, 152, 80, 0.5);
+  border-color: rgba(244, 169, 0, 0.5);
   background: rgba(252, 248, 238, 0.06);
 }
 .btn-subscribe {
@@ -1062,7 +1062,7 @@ body::after {
 .email-note {
   margin-top: 20px;
   font-size: 0.65rem;
-  color: rgba(140, 95, 48, 0.35);
+  color: rgba(196, 133, 0, 0.35);
   letter-spacing: 0.1em;
   position: relative;
 }
@@ -1073,7 +1073,7 @@ body::after {
 footer {
   padding: 96px 0 52px;
   background: var(--obsidian);
-  border-top: 1px solid rgba(205, 152, 80, 0.3);
+  border-top: 1px solid rgba(244, 169, 0, 0.3);
   position: relative;
 }
 footer::before {
@@ -1104,7 +1104,7 @@ footer::before {
   font-size: 0.65rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(140, 95, 48, 0.4);
+  color: rgba(196, 133, 0, 0.4);
 }
 .footer-brand-desc {
   font-size: 0.82rem;
@@ -1130,7 +1130,7 @@ footer::before {
   content: '';
   flex: 1;
   height: 1px;
-  background: linear-gradient(to right, rgba(140, 95, 48, 0.3), transparent);
+  background: linear-gradient(to right, rgba(196, 133, 0, 0.3), transparent);
 }
 
 .footer-links { list-style: none; display: flex; flex-direction: column; gap: 14px; }
@@ -1145,7 +1145,7 @@ footer::before {
 
 .footer-bottom {
   padding-top: 40px;
-  border-top: 1px solid rgba(140, 95, 48, 0.1);
+  border-top: 1px solid rgba(196, 133, 0, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1153,12 +1153,12 @@ footer::before {
 }
 .footer-copy {
   font-size: 0.72rem;
-  color: rgba(140, 95, 48, 0.35);
+  color: rgba(196, 133, 0, 0.35);
   letter-spacing: 0.08em;
 }
 .footer-made {
   font-size: 0.65rem;
-  color: rgba(140, 95, 48, 0.2);
+  color: rgba(196, 133, 0, 0.2);
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -1187,7 +1187,7 @@ footer::before {
   .hero-headline { font-size: clamp(3.5rem, 12vw, 5.5rem); }
   #hero { padding: 140px 0 80px; }
   .email-form { flex-direction: column; }
-  .email-input { border-right: 1px solid rgba(140, 95, 48, 0.25); border-bottom: none; }
+  .email-input { border-right: 1px solid rgba(196, 133, 0, 0.25); border-bottom: none; }
 }
 
 @media (max-width: 600px) {
@@ -1253,49 +1253,49 @@ footer::before {
             <svg viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
               <!-- Outer spinning ring with tick marks -->
               <g class="medallion-spin">
-                <circle cx="170" cy="170" r="158" stroke="rgba(140,95,48,0.15)" stroke-width="1"/>
-                <circle cx="170" cy="170" r="148" stroke="rgba(140,95,48,0.08)" stroke-width="0.5"/>
+                <circle cx="170" cy="170" r="158" stroke="rgba(196, 133, 0, 0.15)" stroke-width="1"/>
+                <circle cx="170" cy="170" r="148" stroke="rgba(196, 133, 0, 0.08)" stroke-width="0.5"/>
                 <!-- Tick marks every 30 degrees -->
-                <line x1="170" y1="12" x2="170" y2="26" stroke="rgba(205,152,80,0.4)" stroke-width="1.5"/>
-                <line x1="248.0" y1="32.0" x2="240.0" y2="45.9" stroke="rgba(205,152,80,0.25)" stroke-width="1"/>
-                <line x1="308.0" y1="92.0" x2="294.1" y2="100.0" stroke="rgba(205,152,80,0.25)" stroke-width="1"/>
-                <line x1="328" y1="170" x2="314" y2="170" stroke="rgba(205,152,80,0.4)" stroke-width="1.5"/>
-                <line x1="308.0" y1="248.0" x2="294.1" y2="240.0" stroke="rgba(205,152,80,0.25)" stroke-width="1"/>
-                <line x1="248.0" y1="308.0" x2="240.0" y2="294.1" stroke="rgba(205,152,80,0.25)" stroke-width="1"/>
-                <line x1="170" y1="328" x2="170" y2="314" stroke="rgba(205,152,80,0.4)" stroke-width="1.5"/>
-                <line x1="92.0" y1="308.0" x2="100.0" y2="294.1" stroke="rgba(205,152,80,0.25)" stroke-width="1"/>
-                <line x1="32.0" y1="248.0" x2="45.9" y2="240.0" stroke="rgba(205,152,80,0.25)" stroke-width="1"/>
-                <line x1="12" y1="170" x2="26" y2="170" stroke="rgba(205,152,80,0.4)" stroke-width="1.5"/>
-                <line x1="32.0" y1="92.0" x2="45.9" y2="100.0" stroke="rgba(205,152,80,0.25)" stroke-width="1"/>
-                <line x1="92.0" y1="32.0" x2="100.0" y2="45.9" stroke="rgba(205,152,80,0.25)" stroke-width="1"/>
+                <line x1="170" y1="12" x2="170" y2="26" stroke="rgba(244, 169, 0, 0.4)" stroke-width="1.5"/>
+                <line x1="248.0" y1="32.0" x2="240.0" y2="45.9" stroke="rgba(244, 169, 0, 0.25)" stroke-width="1"/>
+                <line x1="308.0" y1="92.0" x2="294.1" y2="100.0" stroke="rgba(244, 169, 0, 0.25)" stroke-width="1"/>
+                <line x1="328" y1="170" x2="314" y2="170" stroke="rgba(244, 169, 0, 0.4)" stroke-width="1.5"/>
+                <line x1="308.0" y1="248.0" x2="294.1" y2="240.0" stroke="rgba(244, 169, 0, 0.25)" stroke-width="1"/>
+                <line x1="248.0" y1="308.0" x2="240.0" y2="294.1" stroke="rgba(244, 169, 0, 0.25)" stroke-width="1"/>
+                <line x1="170" y1="328" x2="170" y2="314" stroke="rgba(244, 169, 0, 0.4)" stroke-width="1.5"/>
+                <line x1="92.0" y1="308.0" x2="100.0" y2="294.1" stroke="rgba(244, 169, 0, 0.25)" stroke-width="1"/>
+                <line x1="32.0" y1="248.0" x2="45.9" y2="240.0" stroke="rgba(244, 169, 0, 0.25)" stroke-width="1"/>
+                <line x1="12" y1="170" x2="26" y2="170" stroke="rgba(244, 169, 0, 0.4)" stroke-width="1.5"/>
+                <line x1="32.0" y1="92.0" x2="45.9" y2="100.0" stroke="rgba(244, 169, 0, 0.25)" stroke-width="1"/>
+                <line x1="92.0" y1="32.0" x2="100.0" y2="45.9" stroke="rgba(244, 169, 0, 0.25)" stroke-width="1"/>
               </g>
 
               <!-- Static inner elements -->
-              <circle cx="170" cy="170" r="118" stroke="rgba(140,95,48,0.12)" stroke-width="1"/>
-              <circle cx="170" cy="170" r="90" stroke="rgba(140,95,48,0.18)" stroke-width="0.5" stroke-dasharray="4 8"/>
+              <circle cx="170" cy="170" r="118" stroke="rgba(196, 133, 0, 0.12)" stroke-width="1"/>
+              <circle cx="170" cy="170" r="90" stroke="rgba(196, 133, 0, 0.18)" stroke-width="0.5" stroke-dasharray="4 8"/>
 
               <!-- Diamond -->
               <polygon points="170,80 260,170 170,260 80,170"
-                       stroke="rgba(205,152,80,0.5)" stroke-width="1.5" fill="none"/>
+                       stroke="rgba(244, 169, 0, 0.5)" stroke-width="1.5" fill="none"/>
               <polygon points="170,100 240,170 170,240 100,170"
-                       stroke="rgba(140,95,48,0.3)" stroke-width="0.5" fill="none"/>
+                       stroke="rgba(196, 133, 0, 0.3)" stroke-width="0.5" fill="none"/>
 
               <!-- Cross lines -->
-              <line x1="170" y1="80" x2="170" y2="260" stroke="rgba(140,95,48,0.1)" stroke-width="0.5"/>
-              <line x1="80" y1="170" x2="260" y2="170" stroke="rgba(140,95,48,0.1)" stroke-width="0.5"/>
+              <line x1="170" y1="80" x2="170" y2="260" stroke="rgba(196, 133, 0, 0.1)" stroke-width="0.5"/>
+              <line x1="80" y1="170" x2="260" y2="170" stroke="rgba(196, 133, 0, 0.1)" stroke-width="0.5"/>
 
               <!-- Center burst -->
               <g class="medallion-pulse">
-                <circle cx="170" cy="170" r="28" stroke="rgba(205,152,80,0.35)" stroke-width="1"/>
-                <circle cx="170" cy="170" r="16" fill="rgba(80,52,28,0.8)" stroke="rgba(205,152,80,0.6)" stroke-width="1.5"/>
-                <circle cx="170" cy="170" r="6" fill="rgba(242,210,140,0.8)"/>
+                <circle cx="170" cy="170" r="28" stroke="rgba(244, 169, 0, 0.35)" stroke-width="1"/>
+                <circle cx="170" cy="170" r="16" fill="rgba(74, 64, 58, 0.8)" stroke="rgba(244, 169, 0, 0.6)" stroke-width="1.5"/>
+                <circle cx="170" cy="170" r="6" fill="rgba(255, 209, 82, 0.8)"/>
               </g>
 
               <!-- Diagonal spokes from diamond corners to outer ring -->
-              <line x1="170" y1="80" x2="170" y2="27" stroke="rgba(140,95,48,0.2)" stroke-width="0.5"/>
-              <line x1="260" y1="170" x2="313" y2="170" stroke="rgba(140,95,48,0.2)" stroke-width="0.5"/>
-              <line x1="170" y1="260" x2="170" y2="313" stroke="rgba(140,95,48,0.2)" stroke-width="0.5"/>
-              <line x1="80" y1="170" x2="27" y2="170" stroke="rgba(140,95,48,0.2)" stroke-width="0.5"/>
+              <line x1="170" y1="80" x2="170" y2="27" stroke="rgba(196, 133, 0, 0.2)" stroke-width="0.5"/>
+              <line x1="260" y1="170" x2="313" y2="170" stroke="rgba(196, 133, 0, 0.2)" stroke-width="0.5"/>
+              <line x1="170" y1="260" x2="170" y2="313" stroke="rgba(196, 133, 0, 0.2)" stroke-width="0.5"/>
+              <line x1="80" y1="170" x2="27" y2="170" stroke="rgba(196, 133, 0, 0.2)" stroke-width="0.5"/>
             </svg>
           </div>
           <div class="hero-vertical">Clarity · Strategy · Freedom · VisionSpark</div>
