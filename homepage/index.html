@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VisionSpark — Ignite Your Vision. Build Your Life.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* ── Reset & Base ─────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --obsidian:     #0A0B0D;
+    --deep:         #141619;
+    --warm-shadow:  #2D2316;
+    --bronze-dark:  #50341C;
+    --bronze:       #8C5F30;
+    --bronze-shine: #CD9850;
+    --specular:     #F2D28C;
+    --cream:        #FCF8EE;
+    --mid:          #A08C6E;
+    --patina:       #586E5A;
+    --patina-light: #7A9E7D;
+
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body:    'Jost', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--obsidian);
+    color: var(--cream);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── Scrollbar ────────────────────────────────────────────── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--obsidian); }
+  ::-webkit-scrollbar-thumb { background: var(--bronze); }
+
+  /* ── Typography ───────────────────────────────────────────── */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Layout ───────────────────────────────────────────────── */
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  section { position: relative; }
+
+  /* ── NAV ──────────────────────────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 24px 0;
+    transition: background 0.4s, padding 0.4s;
+  }
+
+  nav.scrolled {
+    background: rgba(10, 11, 13, 0.96);
+    backdrop-filter: blur(12px);
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(140, 95, 48, 0.2);
+  }
+
+  nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-logo span:first-child { color: var(--cream); }
+  .nav-logo span:last-child  { color: var(--bronze-shine); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--mid);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--cream); }
+
+  .btn-nav {
+    padding: 10px 26px;
+    border: 1px solid var(--bronze);
+    color: var(--bronze-shine);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .btn-nav:hover {
+    background: var(--bronze);
+    color: var(--obsidian);
+    border-color: var(--bronze);
+  }
+
+  /* ── HERO ─────────────────────────────────────────────────── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 0 100px;
+    overflow: hidden;
+  }
+
+  /* Geometric background pattern */
+  #hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(140, 95, 48, 0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(88, 110, 90, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* Fine grid texture */
+  #hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(140, 95, 48, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(140, 95, 48, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--patina-light);
+    margin-bottom: 36px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--patina);
+  }
+
+  .hero-title {
+    font-size: clamp(3.8rem, 8vw, 8rem);
+    font-weight: 300;
+    line-height: 1.0;
+    margin-bottom: 12px;
+    color: var(--cream);
+  }
+
+  .hero-title strong {
+    font-weight: 700;
+    color: var(--bronze-shine);
+    display: block;
+    font-style: italic;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--specular);
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--mid);
+    margin: 32px 0 52px;
+    max-width: 560px;
+    font-weight: 200;
+    letter-spacing: 0.04em;
+    line-height: 1.8;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    padding: 16px 40px;
+    background: var(--bronze);
+    color: var(--obsidian);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(242, 210, 140, 0.3), transparent);
+    transition: left 0.5s;
+  }
+
+  .btn-primary:hover { background: var(--bronze-shine); }
+  .btn-primary:hover::after { left: 100%; }
+
+  .btn-outline {
+    padding: 16px 40px;
+    border: 1px solid rgba(140, 95, 48, 0.5);
+    color: var(--mid);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--bronze-shine);
+    color: var(--bronze-shine);
+  }
+
+  /* Vertical text accent */
+  .hero-vertical {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    transform-origin: center;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(140, 95, 48, 0.35);
+    white-space: nowrap;
+  }
+
+  /* ── MISSION ──────────────────────────────────────────────── */
+  #mission {
+    padding: 120px 0;
+    background: var(--deep);
+    border-top: 1px solid rgba(140, 95, 48, 0.15);
+    border-bottom: 1px solid rgba(140, 95, 48, 0.15);
+  }
+
+  .mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .mission-item {
+    padding: 60px 50px;
+    background: var(--obsidian);
+    transition: background 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mission-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--bronze-dark), var(--bronze-shine), var(--bronze-dark));
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+
+  .mission-item:hover::before { transform: scaleX(1); }
+  .mission-item:hover { background: var(--warm-shadow); }
+
+  .mission-number {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 300;
+    color: rgba(140, 95, 48, 0.15);
+    line-height: 1;
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .mission-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--bronze-shine);
+    margin-bottom: 16px;
+    letter-spacing: 0.06em;
+    font-family: var(--font-display);
+  }
+
+  .mission-text {
+    font-size: 0.92rem;
+    color: var(--mid);
+    line-height: 1.9;
+    font-weight: 300;
+  }
+
+  /* ── PRODUCTS ─────────────────────────────────────────────── */
+  #products {
+    padding: 140px 0;
+  }
+
+  .section-header {
+    margin-bottom: 80px;
+  }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.7rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--patina-light);
+    margin-bottom: 20px;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: var(--patina);
+  }
+
+  .section-title {
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    font-weight: 300;
+    color: var(--cream);
+    font-family: var(--font-display);
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--bronze-shine);
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+  }
+
+  .product-card {
+    background: var(--deep);
+    padding: 60px 56px 56px;
+    border: 1px solid rgba(140, 95, 48, 0.12);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.4s, transform 0.3s;
+  }
+
+  .product-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--bronze-shine), transparent);
+    transform: scaleX(0);
+    transition: transform 0.5s;
+  }
+
+  .product-card:hover {
+    border-color: rgba(205, 152, 80, 0.3);
+    transform: translateY(-4px);
+  }
+
+  .product-card:hover::after { transform: scaleX(1); }
+
+  .product-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--patina-light);
+    border: 1px solid rgba(88, 110, 90, 0.4);
+    padding: 5px 14px;
+    margin-bottom: 28px;
+  }
+
+  .product-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 20px;
+    font-family: var(--font-display);
+    line-height: 1.15;
+  }
+
+  .product-desc {
+    font-size: 0.9rem;
+    color: var(--mid);
+    line-height: 1.9;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  .product-price {
+    font-family: var(--font-display);
+    font-size: 3.2rem;
+    font-weight: 300;
+    color: var(--specular);
+    letter-spacing: -0.02em;
+    margin-bottom: 36px;
+    line-height: 1;
+  }
+
+  .product-price sup {
+    font-size: 1.4rem;
+    vertical-align: top;
+    margin-top: 8px;
+  }
+
+  .product-footer {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .btn-buy {
+    padding: 14px 36px;
+    background: var(--bronze);
+    color: var(--obsidian);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .btn-buy:hover { background: var(--bronze-shine); }
+
+  .btn-learn {
+    font-size: 0.78rem;
+    color: var(--mid);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    transition: color 0.3s;
+    border-bottom: 1px solid rgba(140, 95, 48, 0.3);
+    padding-bottom: 2px;
+  }
+
+  .btn-learn:hover { color: var(--bronze-shine); border-color: var(--bronze-shine); }
+
+  /* ── BLOG ─────────────────────────────────────────────────── */
+  #blog {
+    padding: 140px 0;
+    background: var(--deep);
+    border-top: 1px solid rgba(140, 95, 48, 0.1);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .blog-card {
+    background: var(--obsidian);
+    padding: 48px 40px;
+    border: 1px solid rgba(140, 95, 48, 0.08);
+    transition: border-color 0.3s, background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .blog-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px; height: 0;
+    background: linear-gradient(to bottom, var(--bronze-shine), var(--patina));
+    transition: height 0.4s;
+  }
+
+  .blog-card:hover { border-color: rgba(140, 95, 48, 0.25); background: var(--warm-shadow); }
+  .blog-card:hover::before { height: 100%; }
+
+  .blog-category {
+    display: inline-block;
+    font-size: 0.63rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--patina-light);
+    margin-bottom: 22px;
+    position: relative;
+    padding-left: 16px;
+  }
+
+  .blog-category::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 8px; height: 1px;
+    background: var(--patina);
+  }
+
+  .blog-title {
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    font-weight: 600;
+    color: var(--cream);
+    line-height: 1.25;
+    margin-bottom: 20px;
+    transition: color 0.3s;
+  }
+
+  .blog-card:hover .blog-title { color: var(--bronze-shine); }
+
+  .blog-excerpt {
+    font-size: 0.87rem;
+    color: var(--mid);
+    line-height: 1.85;
+    margin-bottom: 36px;
+    font-weight: 300;
+  }
+
+  .blog-read {
+    font-size: 0.75rem;
+    color: var(--bronze);
+    text-decoration: none;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    transition: color 0.3s, letter-spacing 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .blog-read:hover { color: var(--bronze-shine); letter-spacing: 0.22em; }
+
+  /* ── FOOTER ───────────────────────────────────────────────── */
+  footer {
+    padding: 80px 0 48px;
+    border-top: 1px solid rgba(140, 95, 48, 0.25);
+    background: var(--obsidian);
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .footer-brand .nav-logo {
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  .footer-tagline {
+    font-size: 0.85rem;
+    color: var(--mid);
+    font-style: italic;
+    font-family: var(--font-display);
+    margin-bottom: 8px;
+  }
+
+  .footer-sub {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(140, 95, 48, 0.5);
+  }
+
+  .footer-heading {
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 24px;
+    font-family: var(--font-body);
+    font-weight: 500;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-links a {
+    color: var(--mid);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+    font-weight: 300;
+  }
+
+  .footer-links a:hover { color: var(--cream); }
+
+  .footer-bottom {
+    padding-top: 32px;
+    border-top: 1px solid rgba(140, 95, 48, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: rgba(140, 95, 48, 0.4);
+    letter-spacing: 0.06em;
+  }
+
+  .footer-clarity {
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(140, 95, 48, 0.3);
+  }
+
+  /* ── Mobile ───────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .container { padding: 0 24px; }
+    .nav-links { display: none; }
+    .mission-grid { grid-template-columns: 1fr; gap: 2px; }
+    .products-grid { grid-template-columns: 1fr; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    .mission-item { padding: 48px 32px; }
+    .product-card { padding: 48px 32px; }
+  }
+
+  /* ── Reveal animation ─────────────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────────────────────────── -->
+<nav id="navbar">
+  <div class="container">
+    <a href="#" class="nav-logo">
+      <span>Vision</span><span>Spark</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#blog">Journal</a></li>
+      <li><a href="#" class="btn-nav">Begin Your Journey</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Personal Development &amp; Digital Income</div>
+      <h1 class="hero-title">
+        Ignite Your<br>
+        <strong>Vision.</strong>
+        Build Your <em>Life.</em>
+      </h1>
+      <p class="hero-sub">
+        You already know something needs to change. The question is — where do you start?
+        VisionSpark gives you the clarity, the strategy, and the tools to build a life
+        and income that are truly yours.
+      </p>
+      <div class="hero-ctas">
+        <a href="#products" class="btn-primary">Explore Products</a>
+        <a href="#blog" class="btn-outline">Read the Journal</a>
+      </div>
+    </div>
+    <div class="hero-vertical">Clarity · Strategy · Freedom</div>
+  </div>
+</section>
+
+<!-- ── MISSION ───────────────────────────────────────────────── -->
+<section id="mission">
+  <div class="mission-grid">
+    <div class="mission-item reveal">
+      <div class="mission-number">01</div>
+      <div class="mission-title">Clarity</div>
+      <p class="mission-text">
+        Before strategy. Before action. You need to see clearly — who you are,
+        where you're going, and why it matters. Most people skip this.
+        That's why they keep starting over.
+      </p>
+    </div>
+    <div class="mission-item reveal" style="transition-delay: 0.15s">
+      <div class="mission-number">02</div>
+      <div class="mission-title">Strategy</div>
+      <p class="mission-text">
+        Hustle without direction is just exhaustion. We build systems —
+        for your mindset, your money, your days. Precise. Executable.
+        Designed around the life you actually want.
+      </p>
+    </div>
+    <div class="mission-item reveal" style="transition-delay: 0.3s">
+      <div class="mission-number">03</div>
+      <div class="mission-title">Freedom</div>
+      <p class="mission-text">
+        Not retirement. Not passive income fantasies. Real freedom —
+        waking up with purpose, earning on your terms, owning your time.
+        That's the only goal worth building toward.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRODUCTS ──────────────────────────────────────────────── -->
+<section id="products">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Digital Products</div>
+      <h2 class="section-title">Tools Built for Your <em>Journey</em></h2>
+    </div>
+    <div class="products-grid">
+      <div class="product-card reveal">
+        <div class="product-tag">Business · Strategy · Digital Guide</div>
+        <h3 class="product-title">From Zero to First Sale</h3>
+        <p class="product-desc">
+          The complete step-by-step guide to launching your first digital product
+          using the BRMK Method. 9 powerful chapters — from idea to your very first sale.
+          No experience needed. No audience required. Just a clear, proven path.
+        </p>
+        <div class="product-price"><sup>$</sup>27</div>
+        <div class="product-footer">
+          <a href="#" class="btn-buy">Buy Now — $27</a>
+          <a href="#" class="btn-learn">Learn More</a>
+        </div>
+      </div>
+      <div class="product-card reveal" style="transition-delay: 0.15s">
+        <div class="product-tag">Mindset · Productivity · 30-Day Workbook</div>
+        <h3 class="product-title">The Personal Reset System™</h3>
+        <p class="product-desc">
+          A 30-day transformation workbook designed to reset your mindset, your
+          energy, and your habits — one module at a time, at your own pace.
+          5 modules, 60 exercises, habit tracker, and 30 beautifully designed pages.
+        </p>
+        <div class="product-price"><sup>$</sup>23</div>
+        <div class="product-footer">
+          <a href="#" class="btn-buy">Buy Now — $23</a>
+          <a href="#" class="btn-learn">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BLOG ───────────────────────────────────────────────────── -->
+<section id="blog">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">The Journal</div>
+      <h2 class="section-title">Ideas That <em>Move</em> You Forward</h2>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <div class="blog-category">Digital Income</div>
+        <h3 class="blog-title">How I Made My First $1,000 Online — And What I Did Wrong First</h3>
+        <p class="blog-excerpt">
+          Nobody tells you about the three months before the breakthrough.
+          Here's the honest version — the mistakes, the pivots, and the exact moment everything clicked.
+        </p>
+        <a href="#" class="blog-read">Read Article →</a>
+      </div>
+      <div class="blog-card reveal" style="transition-delay: 0.15s">
+        <div class="blog-category">Mindset</div>
+        <h3 class="blog-title">The Morning Routine That Changed Everything (It Takes 22 Minutes)</h3>
+        <p class="blog-excerpt">
+          Not another 5am wake-up call. This is about the quality of the first
+          22 minutes — and why what you do before checking your phone determines your entire day.
+        </p>
+        <a href="#" class="blog-read">Read Article →</a>
+      </div>
+      <div class="blog-card reveal" style="transition-delay: 0.3s">
+        <div class="blog-category">Side Hustle</div>
+        <h3 class="blog-title">5 Digital Products You Can Create and Sell This Week</h3>
+        <p class="blog-excerpt">
+          No coding. No big audience. No startup capital. Just knowledge you already have,
+          packaged correctly, sold to people actively searching for exactly what you know.
+        </p>
+        <a href="#" class="blog-read">Read Article →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <span>Vision</span><span>Spark</span>
+        </a>
+        <p class="footer-tagline">"Ignite Your Vision. Build Your Life."</p>
+        <p class="footer-sub">Clarity · Strategy · Freedom</p>
+      </div>
+      <div>
+        <div class="footer-heading">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="#mission">Mission</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#blog">Journal</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Products</div>
+        <ul class="footer-links">
+          <li><a href="#">From Zero to First Sale — $27</a></li>
+          <li><a href="#">The Personal Reset System™ — $23</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 VisionSpark Innovation. All rights reserved.</p>
+      <p class="footer-clarity">Clarity · Strategy · Freedom</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
