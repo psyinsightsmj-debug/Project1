@@ -662,6 +662,39 @@
   /* ─────────────────────────────────────────────────
      SCROLL REVEAL
   ───────────────────────────────────────────────── */
+  /* Series strip */
+  .series-strip {
+    background: var(--ivory); border: 1px solid var(--sand);
+    border-radius: 10px; padding: 1.1rem 1.5rem; margin-bottom: 2.5rem;
+  }
+  .series-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.56rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--taupe); margin-bottom: 0.75rem;
+  }
+  .series-posts { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .series-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.5rem 0.9rem; border-radius: 6px;
+    text-decoration: none; flex: 1; min-width: 0;
+    border: 1px solid var(--sand);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .series-item:hover { border-color: var(--amber); background: var(--oat); }
+  .series-item.active {
+    background: var(--ink); border-color: var(--ink); pointer-events: none;
+  }
+  .series-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 700; color: var(--amber); flex-shrink: 0;
+  }
+  .series-title {
+    font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 400;
+    color: var(--taupe); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .series-item.active .series-title { color: #EDE8E0; font-weight: 500; }
+
   .reveal {
     opacity: 0;
     transform: translateY(20px);
@@ -722,6 +755,24 @@
       <span class="meta-read">7 min read</span>
     </div>
   </header>
+
+  <div class="series-strip reveal">
+    <div class="series-label">3-Part Series — From Zero to First Sale</div>
+    <div class="series-posts">
+      <a href="how-i-made-my-first-1000-online.html" class="series-item active">
+        <span class="series-num">①</span>
+        <span class="series-title">How I Made My First $1,000</span>
+      </a>
+      <a href="48-hour-digital-product.html" class="series-item">
+        <span class="series-num">②</span>
+        <span class="series-title">The 48-Hour Product</span>
+      </a>
+      <a href="why-price-your-first-product-at-13.html" class="series-item">
+        <span class="series-num">③</span>
+        <span class="series-title">Why Price at $13</span>
+      </a>
+    </div>
+  </div>
 
   <div class="hero-quote reveal">
     <p>"The first $1,000 online isn't about talent. It's about eliminating everything that doesn't work until one thing finally does."</p>
@@ -841,13 +892,13 @@
   <div class="related-section reveal">
     <div class="related-eyebrow">Continue Reading</div>
     <div class="related-grid">
-      <a href="#" class="related-card">
+      <a href="48-hour-digital-product.html" class="related-card">
         <div class="related-tag">Digital Products</div>
         <h5>The 48-Hour Digital Product: From Idea to Listed in a Weekend</h5>
       </a>
-      <a href="#" class="related-card">
+      <a href="why-price-your-first-product-at-13.html" class="related-card">
         <div class="related-tag">Strategy</div>
-        <h5>Why Most Beginners Never Make Their First Sale (And How to Be Different)</h5>
+        <h5>Why Your First Digital Product Should Cost $13 (Not $97)</h5>
       </a>
     </div>
   </div>
