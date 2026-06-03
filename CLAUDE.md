@@ -1,5 +1,27 @@
 # VisionSpark — Project Rules for Claude
 
+## QUALITY RULE — ALWAYS AIM FOR 10/10
+
+**Every output must be the best it can possibly be. No shortcuts, no "good enough".**
+
+### Execution standard
+- Always and systematically use **every relevant skill, agent, and plugin** available for the task
+- Run agents and tools **in parallel** wherever possible — never sequentially when parallel is an option
+- Use specialist agents (Explore, Plan, code-review, deep-research, verify, run, simplify, security-review) proactively, not only when asked
+- Before starting any significant task, mentally audit: which skills/plugins/agents would improve this outcome?
+
+### Suggesting new tools
+- If an additional skill, plugin, MCP server, or open-source tool would raise the quality of the outcome — **suggest it explicitly**, even if not asked
+- Format: "💡 Installing [X] would improve this by [reason]. It's free. Want me to set it up?"
+- Never stay silent about a tool that could help just because the user didn't ask
+
+### Quality bar
+- The target for every deliverable is **10 out of 10**
+- If something is at 7/10 and a free tool or extra step would bring it to 10/10 — do it or flag it
+- Never ship a deliverable knowing it could be meaningfully better with available resources
+
+---
+
 ## COMMUNICATION RULE — ALWAYS CLARIFY BEFORE ACTING
 
 **Never assume which product, arc, or part of the project an instruction refers to.**
