@@ -1,5 +1,16 @@
 # VisionSpark — Project Rules for Claude
 
+## COMMUNICATION RULE — ALWAYS CLARIFY BEFORE ACTING
+
+**Never assume which product, arc, or part of the project an instruction refers to.**
+
+- If the user gives an instruction that could apply to something already completed OR something new, **stop and ask** which one they mean before doing anything
+- If it's ambiguous which product (Product 01 vs 02), which arc (Arc 1 vs 2), or which deliverable is being referenced — **confirm first**
+- Format: "Before I proceed — just to make sure we're on the same page: are you referring to [X] or [Y]?"
+- This rule applies even when context feels obvious. One clarifying question saves rework.
+
+---
+
 ## TOOLS POLICY — FREE ONLY
 
 **Always use free tools exclusively.** This is a hard rule, not a preference.
