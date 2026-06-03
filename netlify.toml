@@ -1,0 +1,7 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog/how-i-made-my-first-1000-online.html"
+  status = 302
