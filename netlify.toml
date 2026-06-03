@@ -3,5 +3,5 @@
 
 [[redirects]]
   from = "/blog"
-  to = "/blog/how-i-made-my-first-1000-online.html"
-  status = 302
+  to = "/blog/index.html"
+  status = 301

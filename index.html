@@ -225,10 +225,11 @@ body::after {
    HERO
 ═══════════════════════════════════════════════════════════════ */
 #hero {
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 160px 0 120px;
+  padding: 0;
   position: relative;
   overflow: hidden;
 }
@@ -260,6 +261,7 @@ body::after {
   position: relative;
   z-index: 2;
   width: 100%;
+  padding-top: 80px;
 }
 
 .hero-layout {
@@ -1185,7 +1187,7 @@ footer::before {
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
   .hero-headline { font-size: clamp(3.5rem, 12vw, 5.5rem); }
-  #hero { padding: 140px 0 80px; }
+  #hero { padding: 0; }
   .email-form { flex-direction: column; }
   .email-input { border-right: 1px solid rgba(196, 133, 0, 0.25); border-bottom: none; }
 }
@@ -1196,7 +1198,7 @@ footer::before {
   .mission-card { padding: 52px 32px; }
   .journal-card { padding: 40px 32px; }
   .journal-card--featured { padding: 52px 32px; }
-  #hero { padding-top: 120px; }
+  #hero { padding-top: 0; }
 }
 </style>
 </head>
@@ -1460,61 +1462,57 @@ footer::before {
           Ideas That<br><em>Move You</em> Forward.
         </h2>
       </div>
-      <a href="https://visionsparkinnovation.com/blog/how-i-made-my-first-1000-online.html" class="journal-all reveal">View All Articles</a>
+      <a href="/blog/index.html" class="journal-all reveal">View All Articles</a>
     </div>
 
     <div class="journal-grid">
       <!-- Featured article -->
-      <div class="journal-card journal-card--featured reveal">
-        <div class="journal-category">Digital Income</div>
+      <a href="/blog/discipline-is-a-myth-habits-that-stick.html" class="journal-card journal-card--featured reveal" style="text-decoration:none;display:block;">
+        <div class="journal-category">Habit Science</div>
         <h3 class="journal-title-card">
-          How I Made My First $1,000 Online — And What I Did Wrong First
+          Why Discipline Is Not Enough to Build Habits (And What Actually Works)
         </h3>
         <p class="journal-excerpt">
-          Nobody tells you about the three months before the breakthrough.
-          The failed attempts, the wrong platforms, the products nobody wanted.
-          Here's the honest version of what actually happened — the mistakes,
-          the pivots, and the exact moment everything clicked into place.
-          If you're early in this journey, this one's for you.
+          Willpower runs out. Discipline fades. But identity? That compounds.
+          The behavioural science behind habits that survive real life, bad Tuesdays,
+          and broken streaks — without the guilt spiral.
         </p>
         <div class="journal-meta">
-          <span class="journal-date">June 2025</span>
-          <a href="https://visionsparkinnovation.com/blog/how-i-made-my-first-1000-online.html" class="journal-read">Read Article</a>
+          <span class="journal-date">June 2026</span>
+          <span class="journal-read">Read Article</span>
         </div>
-      </div>
+      </a>
 
       <!-- Stacked small cards -->
       <div style="display:flex;flex-direction:column;gap:2px">
-        <div class="journal-card reveal" style="transition-delay:0.2s">
-          <div class="journal-category">Mindset</div>
+        <a href="/blog/how-to-reset-your-habits-30-days.html" class="journal-card reveal" style="text-decoration:none;display:block;transition-delay:0.2s">
+          <div class="journal-category">Habit Reset</div>
           <h3 class="journal-title-card">
-            The 48-Hour Digital Product: From Idea to Listed in a Weekend
+            How to Reset Your Habits in 30 Days (Even If You've Failed Before)
           </h3>
           <p class="journal-excerpt">
-            You don't need months to build a product. You need a weekend and a clear
-            framework. Here's the exact process — hour by hour — for going from
-            blank page to listed on Gumroad in 48 hours.
+            You don't have a discipline problem — you have a system problem.
+            A 30-day habit reset with a 20-minute daily cap, built for real life.
           </p>
           <div class="journal-meta">
-            <span class="journal-date">June 2025</span>
-            <a href="https://visionsparkinnovation.com/blog/48-hour-digital-product.html" class="journal-read">Read Article</a>
+            <span class="journal-date">June 2026</span>
+            <span class="journal-read">Read Article</span>
           </div>
-        </div>
-        <div class="journal-card reveal" style="transition-delay:0.35s">
-          <div class="journal-category">Side Hustle</div>
+        </a>
+        <a href="/blog/5-module-system-morning-routine-reset.html" class="journal-card reveal" style="text-decoration:none;display:block;transition-delay:0.35s">
+          <div class="journal-category">Morning Routine</div>
           <h3 class="journal-title-card">
-            Why Your First Digital Product Should Cost $13 (Not $97)
+            The 5-Module System That Finally Fixed My Morning Routine
           </h3>
           <p class="journal-excerpt">
-            Everyone tells you to price high. They're wrong — for your first product.
-            Here's the math and psychology behind why $13 converts better, builds
-            faster, and sets you up for a real pricing ladder.
+            Single-habit advice never fixed my mornings. Five integrated modules —
+            mindset, energy, productivity, habits, integration — 20 minutes a day.
           </p>
           <div class="journal-meta">
-            <span class="journal-date">June 2025</span>
-            <a href="https://visionsparkinnovation.com/blog/why-price-your-first-product-at-13.html" class="journal-read">Read Article</a>
+            <span class="journal-date">June 2026</span>
+            <span class="journal-read">Read Article</span>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
