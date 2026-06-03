@@ -92,3 +92,26 @@
 
 ### Branch
 All work on: `claude/beautiful-hypatia-cAPHh`
+
+---
+
+## PINTEREST PIN RULE — EVERY PIN IS A STANDALONE STORY
+
+**Each pin must have its own unique visual identity. Never replicate colours, style, or layout across pins.**
+
+### Process (mandatory before writing any pin prompt)
+1. **Research first** — scrape Pinterest, Instagram, and relevant social platforms for current trending styles in the specific niche of the product being promoted
+2. **Analyse** — trending colours, fonts, shapes, photography styles, text placement, emotional tone, save-rate patterns
+3. **Match to the individual pin's message** — the visual language must serve that pin's specific emotional hook
+4. **Write one bespoke ChatGPT image prompt per pin** — each pin gets its own palette, mood, layout, and style direction
+
+### Pin delivery format
+- Claude writes the full ChatGPT prompt → user pastes into ChatGPT to generate the image
+- Each prompt must include: exact headline + subtext copy, style direction, colour palette, mood, layout structure, photography style
+- No two pins in a batch should share the same background colour, font style, or layout structure
+
+### What never changes across pins
+- 1000×1500px, 2:3 ratio
+- Product name: The Personal Reset System™ or correct product name
+- Gumroad link in blog post CTA (pins link to blog post, blog links to Gumroad)
+- Shame-free, brand-aligned copy
