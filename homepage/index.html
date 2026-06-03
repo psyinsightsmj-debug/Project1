@@ -225,10 +225,11 @@ body::after {
    HERO
 ═══════════════════════════════════════════════════════════════ */
 #hero {
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 160px 0 120px;
+  padding: 0;
   position: relative;
   overflow: hidden;
 }
@@ -260,6 +261,7 @@ body::after {
   position: relative;
   z-index: 2;
   width: 100%;
+  padding-top: 80px;
 }
 
 .hero-layout {
@@ -1185,7 +1187,7 @@ footer::before {
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
   .hero-headline { font-size: clamp(3.5rem, 12vw, 5.5rem); }
-  #hero { padding: 140px 0 80px; }
+  #hero { padding: 0; }
   .email-form { flex-direction: column; }
   .email-input { border-right: 1px solid rgba(196, 133, 0, 0.25); border-bottom: none; }
 }
@@ -1196,7 +1198,7 @@ footer::before {
   .mission-card { padding: 52px 32px; }
   .journal-card { padding: 40px 32px; }
   .journal-card--featured { padding: 52px 32px; }
-  #hero { padding-top: 120px; }
+  #hero { padding-top: 0; }
 }
 </style>
 </head>
