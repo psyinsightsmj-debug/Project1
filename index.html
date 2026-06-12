@@ -1553,11 +1553,32 @@ footer::before {
     <p class="email-sub reveal">
       Weekly clarity. Real strategies. No noise. Unsubscribe anytime.
     </p>
-    <form class="email-form reveal" onsubmit="return false">
-      <input type="email" class="email-input" placeholder="Your email address">
+    <form class="email-form reveal" id="kit-subscribe-form" action="https://app.kit.com/forms/9556778/subscriptions" method="post">
+      <input type="hidden" name="utf8" value="✓">
+      <input type="email" class="email-input" name="email_address" placeholder="Your email address" required>
       <button class="btn-subscribe" type="submit">Subscribe</button>
     </form>
+    <div id="kit-success-msg" style="display:none; color: rgba(196,133,0,0.9); font-size:0.85rem; letter-spacing:0.08em; margin-top:16px;">You're in. Check your inbox to confirm.</div>
     <p class="email-note reveal">No spam. Ever. We respect your inbox as much as you do.</p>
+    <script>
+      (function(){
+        var form = document.getElementById('kit-subscribe-form');
+        if(!form) return;
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          var email = form.querySelector('input[name="email_address"]').value;
+          if(!email) return;
+          var data = new FormData();
+          data.append('email_address', email);
+          fetch('https://app.kit.com/forms/9556778/subscriptions', {
+            method: 'POST', body: data, mode: 'no-cors'
+          }).then(function(){
+            form.style.display = 'none';
+            document.getElementById('kit-success-msg').style.display = 'block';
+          });
+        });
+      })();
+    </script>
   </div>
 </section>
 
