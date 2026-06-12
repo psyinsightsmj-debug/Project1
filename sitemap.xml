@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main pages -->
+  <url>
+    <loc>https://www.visionsparkinnovation.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.visionsparkinnovation.com/blog/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.visionsparkinnovation.com/freebie</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.visionsparkinnovation.com/links</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Arc 4 — I Can't Say No™ -->
+  <url>
+    <loc>https://www.visionsparkinnovation.com/blog/why-you-cant-say-no.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.visionsparkinnovation.com/blog/4-types-of-people-pleaser-which-one-are-you.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.visionsparkinnovation.com/blog/how-to-say-no-without-guilt-boundary-scripts.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Arc 1 — From Zero to First Sale -->
+  <url>
+    <loc>https://www.visionsparkinnovation.com/blog/how-i-made-my-first-1000-online.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.visionsparkinnovation.com/blog/48-hour-digital-product.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.visionsparkinnovation.com/blog/why-price-your-first-product-at-13.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Arc 2 — Personal Reset System™ -->
+  <url>
+    <loc>https://www.visionsparkinnovation.com/blog/why-i-blew-up-my-routine.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.visionsparkinnovation.com/blog/5-module-reset-rebuild-habits-30-days.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.visionsparkinnovation.com/blog/habit-myth-discipline-is-not-a-strategy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Arc 3 — Habit Reset -->
+  <url>
+    <loc>https://www.visionsparkinnovation.com/blog/how-to-reset-your-habits-30-days.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.visionsparkinnovation.com/blog/5-module-system-morning-routine-reset.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.visionsparkinnovation.com/blog/discipline-is-a-myth-habits-that-stick.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
