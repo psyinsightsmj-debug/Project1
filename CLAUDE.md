@@ -95,6 +95,30 @@ All work on: `claude/beautiful-hypatia-cAPHh`
 
 ---
 
+## NEW CONTENT DEPLOYMENT RULE — ALWAYS FOLLOW AFTER MERGING ANYTHING NEW
+
+**Every time a new blog post, product page, or freebie page is merged and live, do these two things:**
+
+### Step 1 — Confirm the merge
+- Confirm with the user: "✅ [page name] is now live at [full URL]."
+
+### Step 2 — Remind user to update Google Search Console
+Tell the user exactly this:
+
+"**Now update Google Search Console:**
+1. Go to: `https://search.google.com/search-console`
+2. Make sure `https://www.visionsparkinnovation.com/` is selected in the top-left dropdown
+3. Click **Sitemaps** in the left menu
+4. Click on `/sitemap.xml` in the submitted sitemaps list
+5. Click the **3-dot menu** (⋮) on the right → click **Resubmit**
+6. Google will re-crawl your site and find the new page within 24–72 hours."
+
+### Step 3 — Update sitemap.xml
+- Add the new page URL to `/home/user/Project1/sitemap.xml` before pushing
+- Never merge a new page without updating the sitemap first
+
+---
+
 ## PINTEREST PIN RULE — EVERY PIN IS A STANDALONE STORY
 
 **Each pin must have its own unique visual identity. Never replicate colours, style, or layout across pins.**
