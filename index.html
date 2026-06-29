@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VisionSpark — Ignite Your Vision. Build Your Life.</title>
 <meta name="description" content="Clarity. Strategy. Freedom. VisionSpark gives you the tools, the mindset, and the blueprint to build a life and income that are truly yours.">
+<link rel="canonical" href="https://www.visionsparkinnovation.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
@@ -103,8 +104,8 @@ body::after {
 /* ═══════════════════════════════════════════════════════════════
    UTILITY
 ═══════════════════════════════════════════════════════════════ */
-.container { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
-.container--wide { max-width: 1600px; margin: 0 auto; padding: 0 48px; }
+.container { max-width: 1440px; margin: 0 auto; padding: 0 clamp(28px, 5vw, 96px); }
+.container--wide { max-width: 1800px; margin: 0 auto; padding: 0 clamp(28px, 5vw, 96px); }
 
 .eyebrow {
   display: inline-flex;
@@ -226,10 +227,11 @@ body::after {
    HERO
 ═══════════════════════════════════════════════════════════════ */
 #hero {
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 160px 0 120px;
+  padding: 0;
   position: relative;
   overflow: hidden;
 }
@@ -261,6 +263,7 @@ body::after {
   position: relative;
   z-index: 2;
   width: 100%;
+  padding-top: 80px;
 }
 
 .hero-layout {
@@ -623,7 +626,7 @@ body::after {
 .products-header { margin-bottom: 88px; }
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   position: relative;
   z-index: 1;
@@ -1451,7 +1454,7 @@ footer::before {
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
   .hero-headline { font-size: clamp(3.5rem, 12vw, 5.5rem); }
-  #hero { padding: 140px 0 80px; }
+  #hero { padding: 0; }
   .email-form { flex-direction: column; }
   .email-input { border-right: 1px solid rgba(196, 133, 0, 0.25); border-bottom: none; }
 }
@@ -1462,7 +1465,7 @@ footer::before {
   .mission-card { padding: 52px 32px; }
   .journal-card { padding: 40px 32px; }
   .journal-card--featured { padding: 52px 32px; }
-  #hero { padding-top: 120px; }
+  #hero { padding-top: 0; }
 }
 </style>
 </head>
@@ -1802,6 +1805,31 @@ footer::before {
           <a href="#" class="btn-learn">Learn More</a>
         </div>
       </div>
+
+      <div class="product-card reveal" style="transition-delay:0.4s">
+        <div class="product-number">Product 03</div>
+        <h3 class="product-title">I Can't Say<br>No™</h3>
+        <p class="product-desc">
+          A practical workbook for understanding people-pleasing, learning the
+          PAUSE Method™, and rebuilding self-trust at your own pace. Because
+          saying yes to everything is quietly costing you everything.
+        </p>
+        <ul class="product-features">
+          <li>Discover your Fawn Fingerprint™ — 4 types</li>
+          <li>The PAUSE Method™ — 5-step boundary system</li>
+          <li>17 real-life boundary scripts</li>
+          <li>30-Day PAUSE Challenge™</li>
+          <li>Immediate digital download</li>
+        </ul>
+        <div class="product-price-row">
+          <div class="product-price"><sup>$</sup>19</div>
+          <div class="product-value">One-time payment<br>Instant access</div>
+        </div>
+        <div class="product-actions">
+          <a href="https://psyinsight.gumroad.com/l/bjpirp" target="_blank" class="btn-buy">Buy Now — $19</a>
+          <a href="#" class="btn-learn">Learn More</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1829,61 +1857,57 @@ footer::before {
           Ideas That<br><em>Move You</em> Forward.
         </h2>
       </div>
-      <a href="#" class="journal-all reveal">View All Articles</a>
+      <a href="/blog/index.html" class="journal-all reveal">View All Articles</a>
     </div>
 
     <div class="journal-grid">
       <!-- Featured article -->
-      <div class="journal-card journal-card--featured reveal">
-        <div class="journal-category">Digital Income</div>
+      <a href="/blog/why-you-cant-say-no.html" class="journal-card journal-card--featured reveal" style="text-decoration:none;display:block;">
+        <div class="journal-category">Psychology &amp; Self-Awareness</div>
         <h3 class="journal-title-card">
-          How I Made My First $1,000 Online — And What I Did Wrong First
+          Why You Can't Say No (And Why It Has Nothing to Do With Being Too Nice)
         </h3>
         <p class="journal-excerpt">
-          Nobody tells you about the three months before the breakthrough.
-          The failed attempts, the wrong platforms, the products nobody wanted.
-          Here's the honest version of what actually happened — the mistakes,
-          the pivots, and the exact moment everything clicked into place.
-          If you're early in this journey, this one's for you.
+          The automatic yes happens before you've had a chance to think.
+          It's not a personality flaw — it's a survival response. Here's
+          the science behind it, and the moment everything starts to change.
         </p>
         <div class="journal-meta">
-          <span class="journal-date">June 2025</span>
-          <a href="#" class="journal-read">Read Article</a>
+          <span class="journal-date">June 2026</span>
+          <span class="journal-read">Read Article</span>
         </div>
-      </div>
+      </a>
 
       <!-- Stacked small cards -->
       <div style="display:flex;flex-direction:column;gap:2px">
-        <div class="journal-card reveal" style="transition-delay:0.2s">
-          <div class="journal-category">Mindset</div>
+        <a href="/blog/4-types-of-people-pleaser-which-one-are-you.html" class="journal-card reveal" style="text-decoration:none;display:block;transition-delay:0.2s">
+          <div class="journal-category">Self-Discovery</div>
           <h3 class="journal-title-card">
-            The Morning Routine That Changed Everything (It Takes 22 Minutes)
+            The 4 Types of People-Pleaser — Which One Are You?
           </h3>
           <p class="journal-excerpt">
-            Not another 5am wake-up call. This is about the quality of the first
-            22 minutes — and why what you do before checking your phone
-            determines your entire day.
+            Not all people-pleasers look the same. The Approval Seeker, the Peacekeeper,
+            the Caretaker, the Chameleon — which Fawn Fingerprint™ is yours?
           </p>
           <div class="journal-meta">
-            <span class="journal-date">May 2025</span>
-            <a href="#" class="journal-read">Read Article</a>
+            <span class="journal-date">June 2026</span>
+            <span class="journal-read">Read Article</span>
           </div>
-        </div>
-        <div class="journal-card reveal" style="transition-delay:0.35s">
-          <div class="journal-category">Side Hustle</div>
+        </a>
+        <a href="/blog/how-to-say-no-without-guilt-boundary-scripts.html" class="journal-card reveal" style="text-decoration:none;display:block;transition-delay:0.35s">
+          <div class="journal-category">Boundaries &amp; Recovery</div>
           <h3 class="journal-title-card">
-            5 Digital Products You Can Create and Sell This Week
+            How to Say No Without the Guilt Spiral
           </h3>
           <p class="journal-excerpt">
-            No coding. No big audience. No startup capital. Just knowledge you
-            already have, packaged correctly, sold to people actively searching
-            for exactly what you know.
+            The full PAUSE Method™, 5 real boundary scripts, and how to hold
+            your position when someone pushes back. For people-pleasers.
           </p>
           <div class="journal-meta">
-            <span class="journal-date">May 2025</span>
-            <a href="#" class="journal-read">Read Article</a>
+            <span class="journal-date">June 2026</span>
+            <span class="journal-read">Read Article</span>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -1899,11 +1923,32 @@ footer::before {
     <p class="email-sub reveal">
       Weekly clarity. Real strategies. No noise. Unsubscribe anytime.
     </p>
-    <form class="email-form reveal" onsubmit="return false">
-      <input type="email" class="email-input" placeholder="Your email address">
+    <form class="email-form reveal" id="kit-subscribe-form" action="https://app.kit.com/forms/9556778/subscriptions" method="post">
+      <input type="hidden" name="utf8" value="✓">
+      <input type="email" class="email-input" name="email_address" placeholder="Your email address" required>
       <button class="btn-subscribe" type="submit">Subscribe</button>
     </form>
+    <div id="kit-success-msg" style="display:none; color: rgba(196,133,0,0.9); font-size:0.85rem; letter-spacing:0.08em; margin-top:16px;">You're in. Check your inbox to confirm.</div>
     <p class="email-note reveal">No spam. Ever. We respect your inbox as much as you do.</p>
+    <script>
+      (function(){
+        var form = document.getElementById('kit-subscribe-form');
+        if(!form) return;
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          var email = form.querySelector('input[name="email_address"]').value;
+          if(!email) return;
+          var data = new FormData();
+          data.append('email_address', email);
+          fetch('https://app.kit.com/forms/9556778/subscriptions', {
+            method: 'POST', body: data, mode: 'no-cors'
+          }).then(function(){
+            form.style.display = 'none';
+            document.getElementById('kit-success-msg').style.display = 'block';
+          });
+        });
+      })();
+    </script>
   </div>
 </section>
 

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journal — All Articles | VisionSpark</title>
+<meta name="description" content="Practical guides on habits, mindset, morning routines, and building income online. Real strategies, no fluff.">
+<link rel="canonical" href="https://visionsparkinnovation.com/blog/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Lora:wght@400;500&family=Jost:wght@300;400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --oat:    #FAF6ED;
+    --ivory:  #FFFDF8;
+    --sand:   #D4C9B8;
+    --taupe:  #8A7E70;
+    --ink:    #2A2218;
+    --forest: #3B6E5A;
+    --amber:  #C9892A;
+    --terra:  #A8513A;
+    --obsidian: #0A0B0D;
+    --nav-border: rgba(255,255,255,0.08);
+    --nav-text:   #A09688;
+    --gold:   #f4a900;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--oat);
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    animation: fadeIn 0.6s ease both;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--obsidian);
+    border-bottom: 1px solid var(--nav-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 3rem;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #EDE8E0;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--nav-text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .page-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 8rem 2rem 6rem;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .page-eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .page-title em { font-style: italic; color: var(--terra); }
+
+  .page-subtitle {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    color: var(--taupe);
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  /* Filter tabs */
+  .filter-bar {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  .filter-btn {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2px;
+    border: 1px solid var(--sand);
+    background: transparent;
+    color: var(--taupe);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--ink);
+    color: var(--oat);
+    border-color: var(--ink);
+  }
+
+  /* Arc sections */
+  .arc-section { margin-bottom: 4.5rem; }
+
+  .arc-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--taupe);
+    margin-bottom: 0.4rem;
+  }
+  .arc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .arc-desc {
+    font-size: 0.88rem;
+    color: var(--taupe);
+    margin-bottom: 2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--sand);
+    max-width: 640px;
+  }
+  .arc-product-tag {
+    display: inline-block;
+    background: var(--amber);
+    color: var(--ink);
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.28rem 0.75rem;
+    border-radius: 2px;
+    margin-left: 0.75rem;
+    vertical-align: middle;
+    text-decoration: none;
+  }
+
+  /* Post grid */
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .post-card {
+    background: var(--ivory);
+    border: 1px solid var(--sand);
+    border-radius: 4px;
+    padding: 2rem 1.8rem;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .post-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--amber);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.25s ease;
+  }
+  .post-card:hover {
+    border-color: rgba(201,137,42,0.4);
+    box-shadow: 0 4px 24px rgba(42,34,24,0.08);
+    transform: translateY(-2px);
+  }
+  .post-card:hover::before { transform: scaleY(1); }
+
+  .post-category {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 0.75rem;
+  }
+
+  .post-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-bottom: 0.9rem;
+    transition: color 0.2s;
+  }
+  .post-card:hover .post-title { color: var(--amber); }
+
+  .post-excerpt {
+    font-family: 'Lora', serif;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--taupe);
+    margin-bottom: 1.4rem;
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--taupe);
+  }
+
+  .post-read {
+    color: var(--amber);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s;
+  }
+  .post-card:hover .post-read { gap: 10px; }
+  .post-read::after { content: '→'; }
+
+  footer {
+    background: var(--obsidian);
+    color: var(--nav-text);
+    text-align: center;
+    padding: 3rem 2rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .page-wrap { padding: 7rem 1.2rem 4rem; }
+    .post-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Vision<span>Spark</span></a>
+  <ul class="nav-links">
+    <li><a href="/#products">Products</a></li>
+    <li><a href="/blog/">Journal</a></li>
+    <li><a href="/#email-cta">Newsletter</a></li>
+  </ul>
+</nav>
+
+<main class="page-wrap">
+
+  <header class="page-header">
+    <div class="page-eyebrow">The VisionSpark Journal</div>
+    <h1 class="page-title">Ideas That <em>Move You</em> Forward</h1>
+    <p class="page-subtitle">Real strategies on habits, mindset, and building income online. No fluff. No shame. Just what works.</p>
+  </header>
+
+  <!-- ── ARC 4 — I Can't Say No™ ── -->
+  <div class="arc-section" data-arc="cantsayno">
+    <div class="arc-label">Arc 4 — Boundaries &amp; Recovery</div>
+    <div class="arc-title">
+      I Can't Say No™
+      <a href="https://psyinsight.gumroad.com/l/bjpirp" class="arc-product-tag" target="_blank">Get the Workbook $19 →</a>
+    </div>
+    <p class="arc-desc">Why saying no feels so hard — and what to do about it. Understanding the fawn response, discovering your people-pleasing pattern, and learning the PAUSE Method™.</p>
+    <div class="post-grid">
+      <a href="/blog/why-you-cant-say-no.html" class="post-card">
+        <div class="post-category">Psychology &amp; Self-Awareness</div>
+        <h2 class="post-title">Why You Can't Say No (And Why It Has Nothing to Do With Being Too Nice)</h2>
+        <p class="post-excerpt">The automatic yes happens before you've had a chance to think. It's not a personality flaw — it's a survival response. Here's the science behind it, and the moment everything starts to change.</p>
+        <div class="post-meta">
+          <span>June 2026 · 8 min read</span>
+          <span class="post-read">Read</span>
+        </div>
+      </a>
+      <a href="/blog/4-types-of-people-pleaser-which-one-are-you.html" class="post-card">
+        <div class="post-category">Self-Discovery</div>
+        <h2 class="post-title">The 4 Types of People-Pleaser — Which One Are You? (And What It's Costing You)</h2>
+        <p class="post-excerpt">Not all people-pleasers look the same. The Approval Seeker, the Peacekeeper, the Caretaker, the Chameleon — same root pattern, completely different fingerprint. Which one is yours?</p>
+        <div class="post-meta">
+          <span>June 2026 · 9 min read</span>
+          <span class="post-read">Read</span>
+        </div>
+      </a>
+      <a href="/blog/how-to-say-no-without-guilt-boundary-scripts.html" class="post-card">
+        <div class="post-category">Boundaries &amp; Recovery</div>
+        <h2 class="post-title">How to Say No Without the Guilt Spiral: A Practical Guide for People-Pleasers</h2>
+        <p class="post-excerpt">The guilt comes even after a healthy no. Here's why — and what to do with it. The full PAUSE Method™, 5 real boundary scripts, and how to hold your position when someone pushes back.</p>
+        <div class="post-meta">
+          <span>June 2026 · 10 min read</span>
+          <span class="post-read">Read</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── ARC 3 — The Personal Reset System™ ── -->
+  <div class="arc-section" data-arc="reset">
+    <div class="arc-label">Arc 3 — Habit Reset</div>
+    <div class="arc-title">
+      The Personal Reset System™
+      <a href="https://psyinsight.gumroad.com/l/uxhty" class="arc-product-tag" target="_blank">Get the Workbook $17 →</a>
+    </div>
+    <p class="arc-desc">How to break out of broken habit loops, reset your morning, and build a system that actually survives real life.</p>
+    <div class="post-grid">
+      <a href="/blog/discipline-is-a-myth-habits-that-stick.html" class="post-card">
+        <div class="post-category">Habit Science</div>
+        <h2 class="post-title">Why Discipline Is Not Enough to Build Habits (And What Actually Works)</h2>
+        <p class="post-excerpt">Willpower runs out. Discipline fades. But identity compounds. The behavioural science behind habits that survive bad Tuesdays and broken streaks — without guilt.</p>
+        <div class="post-meta">
+          <span>June 2026 · 9 min read</span>
+          <span class="post-read">Read</span>
+        </div>
+      </a>
+      <a href="/blog/how-to-reset-your-habits-30-days.html" class="post-card">
+        <div class="post-category">Habit Reset</div>
+        <h2 class="post-title">How to Reset Your Habits in 30 Days (Even If You've Failed Before)</h2>
+        <p class="post-excerpt">You don't have a discipline problem — you have a system problem. A 30-day habit reset with a 20-minute daily cap, built for real life and broken streaks.</p>
+        <div class="post-meta">
+          <span>June 2026 · 10 min read</span>
+          <span class="post-read">Read</span>
+        </div>
+      </a>
+      <a href="/blog/5-module-system-morning-routine-reset.html" class="post-card">
+        <div class="post-category">Morning Routine</div>
+        <h2 class="post-title">The 5-Module System That Finally Fixed My Morning Routine</h2>
+        <p class="post-excerpt">Single-habit advice never fixed my mornings. Five integrated modules — mindset, energy, productivity, habits, integration — 20 minutes a day. No 5am alarm required.</p>
+        <div class="post-meta">
+          <span>June 2026 · 11 min read</span>
+          <span class="post-read">Read</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── ARC 1 — From Zero to First Sale ── -->
+  <div class="arc-section" data-arc="firstsale">
+    <div class="arc-label">Arc 1 — Digital Income</div>
+    <div class="arc-title">
+      From Zero to First Sale
+      <a href="https://psyinsight.gumroad.com/l/qscjsb" class="arc-product-tag" target="_blank">Get the Guide $13 →</a>
+    </div>
+    <p class="arc-desc">How to build and sell your first digital product — even if you have no audience, no tech skills, and no idea where to start.</p>
+    <div class="post-grid">
+      <a href="/blog/how-i-made-my-first-1000-online.html" class="post-card">
+        <div class="post-category">Digital Income</div>
+        <h2 class="post-title">How I Made My First $1,000 Online — And What I Did Wrong First</h2>
+        <p class="post-excerpt">Nobody tells you about the three months before the breakthrough. The failed attempts, the wrong platforms, the products nobody wanted. Here's the honest version.</p>
+        <div class="post-meta">
+          <span>May 2025 · 8 min read</span>
+          <span class="post-read">Read</span>
+        </div>
+      </a>
+      <a href="/blog/48-hour-digital-product.html" class="post-card">
+        <div class="post-category">Side Hustle</div>
+        <h2 class="post-title">How to Build a Digital Product in 48 Hours (That People Actually Buy)</h2>
+        <p class="post-excerpt">No coding. No big audience. No startup capital. Just knowledge packaged correctly, sold to people actively searching for what you already know.</p>
+        <div class="post-meta">
+          <span>May 2025 · 7 min read</span>
+          <span class="post-read">Read</span>
+        </div>
+      </a>
+      <a href="/blog/why-price-your-first-product-at-13.html" class="post-card">
+        <div class="post-category">Pricing</div>
+        <h2 class="post-title">Why $13 Is the Perfect Price for Your First Digital Product</h2>
+        <p class="post-excerpt">Most creators over-price and under-sell. The psychology behind the $13 sweet spot — and why it converts better than $27, $47, or even free.</p>
+        <div class="post-meta">
+          <span>May 2025 · 6 min read</span>
+          <span class="post-read">Read</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 VisionSpark · <a href="/">visionsparkinnovation.com</a></p>
+</footer>
+
+</body>
+</html>
