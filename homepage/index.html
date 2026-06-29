@@ -1167,7 +1167,7 @@ footer::before {
 /* ═══════════════════════════════════════════════════════════════
    BOOK HERO + FREEBIE STRIP — handoff design tokens (scoped)
 ═══════════════════════════════════════════════════════════════ */
-#book-hero, #freebie-strip {
+#book-hero, #freebie-strip, #book-hero-2, #freebie-strip-2 {
   --vs-navy:     #1B2A4A;
   --vs-gold:     #C9A84C;
   --vs-teal:     #0D7377;
@@ -1181,6 +1181,13 @@ footer::before {
 }
 
 /* Book Hero */
+#book-hero-2 {
+  background: #0D2240;
+  padding: 60px 40px 56px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(13,115,119,0.3);
+}
 #book-hero {
   background: var(--vs-navy);
   padding: 60px 40px 56px;
@@ -1432,10 +1439,10 @@ footer::before {
 @media (max-width: 900px) {
   .container, .container--wide { padding: 0 28px; }
   nav .nav-links { display: none; }
-  #book-hero { padding: 40px 20px; }
+  #book-hero, #book-hero-2 { padding: 40px 20px; }
   .bh-inner { flex-direction: column; gap: 32px; }
   .bh-book { display: none; }
-  #freebie-strip { flex-direction: column; padding: 36px 20px; }
+  #freebie-strip, #freebie-strip-2 { flex-direction: column; padding: 36px 20px; }
   .fs-preview { width: 100%; }
   .mission-grid { grid-template-columns: 1fr; }
   .products-grid { grid-template-columns: 1fr; }
@@ -1473,7 +1480,7 @@ footer::before {
     </a>
     <ul class="nav-links">
       <li><a href="#mission">Mission</a></li>
-      <li><a href="#book-hero">Book</a></li>
+      <li><a href="#book-hero">Books</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#journal">Journal</a></li>
       <li>
@@ -1680,6 +1687,57 @@ footer::before {
     <div class="fs-q"><span class="fs-q-num">3 &nbsp;</span>What is my contribution?</div>
     <div class="fs-q"><span class="fs-q-num">4 &nbsp;</span>What do I actually need?</div>
     <div class="fs-q"><span class="fs-q-num">5 &nbsp;</span>What would a good outcome look like?</div>
+  </div>
+</section>
+
+<!-- ═══════════ BOOK HERO 2 — I CAN'T SAY NO ═══════════ -->
+<section id="book-hero-2">
+  <div class="bh-ghost">N</div>
+  <div class="bh-badge">Flagship — Boundary Edition</div>
+  <div class="bh-inner">
+    <div class="bh-text">
+      <h2 class="bh-title">I Can't Say No™<br><em>The PAUSE Method for Boundaries</em></h2>
+      <p class="bh-subtitle">Stop fixing everyone else's life. Start protecting your own.</p>
+      <div class="bh-rule"></div>
+      <p class="bh-desc">
+        If you're always the one who says yes, <strong>you've been trained to abandon yourself.</strong>
+        The PAUSE Method is a 5-step boundary system that breaks the fixer pattern
+        and gives you 17 ready-to-use scripts for the moments that matter most.
+        No guilt. No conflict. Just clarity.
+      </p>
+      <div class="bh-actions">
+        <a href="#GUMROAD_LINK" class="btn-vs-gold">Get the book — $19</a>
+        <a href="/no" class="btn-vs-outline">Read a sample</a>
+      </div>
+      <p class="bh-price-note">One-time payment &nbsp;·&nbsp; Instant digital download &nbsp;·&nbsp; Lifetime access</p>
+    </div>
+    <div class="bh-book" style="border-left-color:#0D7377">
+      <div class="bh-book-method" style="color:#C9A84C">The PAUSE Method</div>
+      <div class="bh-book-title">I Can't Say No™</div>
+      <div class="bh-book-line"></div>
+      <div class="bh-book-author">Milan J. Nollinn</div>
+      <div class="bh-book-author" style="color:#0D7377">VisionSpark Innovation</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FREEBIE STRIP 2 — I CAN'T SAY NO ═══════════ -->
+<section id="freebie-strip-2">
+  <div class="fs-left">
+    <div class="fs-badge">Free Self-Assessment</div>
+    <h2 class="fs-title">Are You the Fixer <em>In the Room?</em></h2>
+    <p class="fs-desc">Five signs you've been saying yes when you mean no — and what it's costing you. Takes two minutes. Delivered instantly to your inbox.</p>
+    <a href="/no" class="btn-vs-teal">Get the free guide</a>
+    <p class="fs-note">No spam. Unsubscribe anytime.</p>
+  </div>
+  <div class="fs-preview">
+    <div class="fs-preview-eyebrow">Milan J. Nollinn</div>
+    <div class="fs-preview-title">5 Signs You Keep Saying Yes When You Mean No</div>
+    <div class="fs-q"><span class="fs-q-num">1 &nbsp;</span>You say yes before the sentence ends.</div>
+    <div class="fs-q"><span class="fs-q-num">2 &nbsp;</span>You feel guilty when you say no.</div>
+    <div class="fs-q"><span class="fs-q-num">3 &nbsp;</span>You volunteer to fix problems not yours.</div>
+    <div class="fs-q"><span class="fs-q-num">4 &nbsp;</span>You stay silent to keep the peace.</div>
+    <div class="fs-q"><span class="fs-q-num">5 &nbsp;</span>You feel resentful after agreeing.</div>
   </div>
 </section>
 
