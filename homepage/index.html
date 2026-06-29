@@ -7,6 +7,7 @@
 <meta name="description" content="Clarity. Strategy. Freedom. VisionSpark gives you the tools, the mindset, and the blueprint to build a life and income that are truly yours.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Jost:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -1164,6 +1165,259 @@ footer::before {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   BOOK HERO + FREEBIE STRIP — handoff design tokens (scoped)
+═══════════════════════════════════════════════════════════════ */
+#book-hero, #freebie-strip {
+  --vs-navy:     #1B2A4A;
+  --vs-gold:     #C9A84C;
+  --vs-teal:     #0D7377;
+  --vs-grey:     #718096;
+  --vs-offwhite: #F0EBE0;
+  --vs-muted:    #B8C4D4;
+  --vs-cream:    #F0EDE6;
+  --vs-dark:     #4A5568;
+  --vs-border:   #E2DEDA;
+  font-family: 'EB Garamond', Georgia, serif;
+}
+
+/* Book Hero */
+#book-hero {
+  background: var(--vs-navy);
+  padding: 60px 40px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.bh-ghost {
+  position: absolute;
+  right: 40px; top: 10px;
+  font-size: 200px;
+  font-weight: 600;
+  color: rgba(201, 168, 76, 0.04);
+  font-family: 'EB Garamond', Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.bh-badge {
+  display: inline-block;
+  background: rgba(201, 168, 76, 0.15);
+  color: var(--vs-gold);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  padding: 5px 14px;
+  border-radius: 2px;
+  font-family: Georgia, serif;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+.bh-inner {
+  display: flex;
+  gap: 52px;
+  align-items: flex-start;
+  max-width: 860px;
+}
+.bh-text { flex: 1; }
+.bh-title {
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--vs-offwhite);
+  line-height: 1.2;
+  margin-bottom: 8px;
+  font-family: 'EB Garamond', Georgia, serif;
+}
+.bh-title em { color: var(--vs-gold); font-style: italic; }
+.bh-subtitle {
+  font-size: 14px;
+  color: var(--vs-grey);
+  font-style: italic;
+  font-family: 'EB Garamond', Georgia, serif;
+  margin-bottom: 20px;
+}
+.bh-rule {
+  width: 48px; height: 2px;
+  background: var(--vs-gold);
+  margin-bottom: 20px;
+}
+.bh-desc {
+  font-size: 14px;
+  color: var(--vs-muted);
+  line-height: 1.8;
+  font-family: 'EB Garamond', Georgia, serif;
+  max-width: 420px;
+  margin-bottom: 30px;
+}
+.bh-desc strong { color: var(--vs-offwhite); font-weight: 600; }
+.bh-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.btn-vs-gold {
+  background: var(--vs-gold);
+  color: var(--vs-navy);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px 26px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: Georgia, serif;
+  transition: opacity 0.2s;
+}
+.btn-vs-gold:hover { opacity: 0.9; }
+.btn-vs-outline {
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  color: var(--vs-gold);
+  font-size: 13px;
+  padding: 12px 26px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: Georgia, serif;
+  transition: border-color 0.2s;
+}
+.btn-vs-outline:hover { border-color: var(--vs-gold); }
+.bh-price-note {
+  font-size: 11px;
+  color: var(--vs-grey);
+  font-family: Georgia, serif;
+}
+
+/* Book mockup */
+.bh-book {
+  width: 150px;
+  flex-shrink: 0;
+  background: #0D2240;
+  border-radius: 6px;
+  padding: 24px 18px;
+  border-left: 5px solid var(--vs-gold);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 210px;
+}
+.bh-book-method {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: var(--vs-teal);
+  font-family: Georgia, serif;
+  text-transform: uppercase;
+  text-align: center;
+}
+.bh-book-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--vs-offwhite);
+  text-align: center;
+  line-height: 1.5;
+  font-family: 'EB Garamond', Georgia, serif;
+}
+.bh-book-line { width: 32px; height: 1px; background: var(--vs-gold); }
+.bh-book-author {
+  font-size: 9px;
+  color: var(--vs-grey);
+  text-align: center;
+  font-family: Georgia, serif;
+}
+
+/* Freebie Strip */
+#freebie-strip {
+  background: var(--vs-cream);
+  border-top: 3px solid var(--vs-gold);
+  padding: 48px 40px;
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+.fs-left { flex: 1; }
+.fs-badge {
+  display: inline-block;
+  background: var(--vs-gold);
+  color: var(--vs-navy);
+  font-size: 9px;
+  letter-spacing: 2px;
+  padding: 5px 12px;
+  border-radius: 2px;
+  font-family: Georgia, serif;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.fs-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--vs-navy);
+  line-height: 1.3;
+  font-family: 'EB Garamond', Georgia, serif;
+  margin-bottom: 12px;
+}
+.fs-title em { color: var(--vs-teal); font-style: italic; }
+.fs-desc {
+  font-size: 13px;
+  color: var(--vs-dark);
+  line-height: 1.75;
+  font-family: Georgia, serif;
+  margin-bottom: 22px;
+  max-width: 400px;
+}
+.btn-vs-teal {
+  display: inline-block;
+  background: var(--vs-teal);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px 26px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: Georgia, serif;
+  transition: opacity 0.2s;
+}
+.btn-vs-teal:hover { opacity: 0.9; }
+.fs-note {
+  font-size: 11px;
+  color: var(--vs-grey);
+  margin-top: 10px;
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+.fs-preview {
+  width: 180px;
+  flex-shrink: 0;
+  background: var(--vs-navy);
+  border-radius: 6px;
+  padding: 20px 18px;
+  border-top: 3px solid var(--vs-gold);
+}
+.fs-preview-eyebrow {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: var(--vs-gold);
+  font-family: Georgia, serif;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.fs-preview-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--vs-offwhite);
+  line-height: 1.5;
+  font-family: 'EB Garamond', Georgia, serif;
+  margin-bottom: 14px;
+}
+.fs-q {
+  font-size: 10px;
+  color: var(--vs-grey);
+  line-height: 1.5;
+  font-family: Georgia, serif;
+  padding: 6px 0;
+  border-bottom: 0.5px solid rgba(255,255,255,0.07);
+}
+.fs-q:last-child { border-bottom: none; }
+.fs-q-num { color: var(--vs-teal); font-weight: 600; }
+
+/* ═══════════════════════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 1100px) {
@@ -1178,6 +1432,11 @@ footer::before {
 @media (max-width: 900px) {
   .container, .container--wide { padding: 0 28px; }
   nav .nav-links { display: none; }
+  #book-hero { padding: 40px 20px; }
+  .bh-inner { flex-direction: column; gap: 32px; }
+  .bh-book { display: none; }
+  #freebie-strip { flex-direction: column; padding: 36px 20px; }
+  .fs-preview { width: 100%; }
   .mission-grid { grid-template-columns: 1fr; }
   .products-grid { grid-template-columns: 1fr; }
   .journal-grid { grid-template-columns: 1fr; }
@@ -1214,6 +1473,7 @@ footer::before {
     </a>
     <ul class="nav-links">
       <li><a href="#mission">Mission</a></li>
+      <li><a href="#book-hero">Book</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#journal">Journal</a></li>
       <li>
@@ -1369,6 +1629,57 @@ footer::before {
         </p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════ BOOK HERO ═══════════ -->
+<section id="book-hero">
+  <div class="bh-ghost">C</div>
+  <div class="bh-badge">Flagship — New Release</div>
+  <div class="bh-inner">
+    <div class="bh-text">
+      <h2 class="bh-title">The Conversation<br><em>Before the Conversation</em></h2>
+      <p class="bh-subtitle">How to bring up difficult topics without starting a fight</p>
+      <div class="bh-rule"></div>
+      <p class="bh-desc">
+        Most difficult conversations fail <strong>before a single word is spoken.</strong>
+        The PREPARE Method is a complete 7-step framework for approaching
+        any hard conversation with clarity, honesty, and intention.
+        For every relationship. Every situation. Every conversation you've been avoiding.
+      </p>
+      <div class="bh-actions">
+        <a href="#GUMROAD_LINK" class="btn-vs-gold">Get the book — $11</a>
+        <a href="/clarity" class="btn-vs-outline">Read a sample</a>
+      </div>
+      <p class="bh-price-note">One-time payment &nbsp;·&nbsp; Instant digital download &nbsp;·&nbsp; Lifetime access</p>
+    </div>
+    <div class="bh-book">
+      <div class="bh-book-method">The PREPARE Method</div>
+      <div class="bh-book-title">The Conversation Before the Conversation</div>
+      <div class="bh-book-line"></div>
+      <div class="bh-book-author">Milan J. Nollinn</div>
+      <div class="bh-book-author" style="color:#0D7377">VisionSpark Innovation</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FREEBIE STRIP ═══════════ -->
+<section id="freebie-strip">
+  <div class="fs-left">
+    <div class="fs-badge">Free Guide</div>
+    <h2 class="fs-title">What Most People <em>Never Do</em><br>Before a Difficult Conversation</h2>
+    <p class="fs-desc">Five questions that change how every hard conversation begins. Takes five minutes. Works immediately. Delivered instantly to your inbox.</p>
+    <a href="/clarity" class="btn-vs-teal">Get the free guide</a>
+    <p class="fs-note">No spam. Unsubscribe anytime.</p>
+  </div>
+  <div class="fs-preview">
+    <div class="fs-preview-eyebrow">Milan J. Nollinn</div>
+    <div class="fs-preview-title">What Most People Never Do Before a Difficult Conversation</div>
+    <div class="fs-q"><span class="fs-q-num">1 &nbsp;</span>What exactly happened?</div>
+    <div class="fs-q"><span class="fs-q-num">2 &nbsp;</span>What am I actually feeling?</div>
+    <div class="fs-q"><span class="fs-q-num">3 &nbsp;</span>What is my contribution?</div>
+    <div class="fs-q"><span class="fs-q-num">4 &nbsp;</span>What do I actually need?</div>
+    <div class="fs-q"><span class="fs-q-num">5 &nbsp;</span>What would a good outcome look like?</div>
   </div>
 </section>
 
